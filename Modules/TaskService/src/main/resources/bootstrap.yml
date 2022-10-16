@@ -1,0 +1,16 @@
+server:
+  port: 9092
+spring:
+  application:
+    name: task
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  cloud:
+    nacos:
+      config:
+        server-addr: 47.100.131.2:8848
+        group: magician
+      discovery:
+        server-addr: 47.100.131.2:8848
+        group: magician
