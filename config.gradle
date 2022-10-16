@@ -1,0 +1,29 @@
+ext {
+    version = [
+            "druidVersion"        : "1.2.13-SNSAPSHOT",
+            "mysqlVersion"        : "8.0.30",
+            "guavaVersion"        : "31.1-jre",
+            "hutoolVersion"       : "5.8.8",
+            "jjwtVersion"         : "0.9.0",
+            "mybatisPlusVersion"  : "3.5.2",
+            "lombokVersion"       : "1.18.24",
+            "slf4jApiVersion"     : "1.7.36",
+            "logbackVersion"      : "1.2.11",
+            "knife4jVersion"      : "3.0.3"
+    ]
+
+    dependencies = [
+            "druid"                 : "com.alibaba:druid-spring-boot-starter:${version.druidVersion}",
+            "mysql"                 : "mysql:mysql-connector-java:${version.mysqlVersion}",
+            "guava"                 : "com.google.guava:guava:${version.guavaVersion}",
+            "hutool"                : "cn.hutool:hutool-all:${version.hutoolVersion}",
+            "jjwt"                  : "io.jsonwebtoken:jjwt:${version.jjwtVersion}",
+            "mybatis-plus"          : "com.baomidou:mybatis-plus-boot-starter:${version.mybatisPlusVersion}",
+            "mybatis-plus-generator": "com.baomidou:mybatis-plus-generator:${version.mybatisPlusVersion}",
+            "lombok"                : "org.projectlombok:lombok:${version.lombokVersion}",
+            "slf4j"                 : "org.slf4j:slf4j-api:${version.slf4jApiVersion}",
+            "logback"               : "ch.qos.logback:logback-classic:${version.logbackVersion}",
+            "knife4j-micro"         : "com.github.xiaoymin:knife4j-micro-spring-boot-starter:${version.knife4jVersion}",
+            "knife4j"               : "com.github.xiaoymin:knife4j-spring-boot-starter:${version.knife4jVersion}"
+    ]
+}

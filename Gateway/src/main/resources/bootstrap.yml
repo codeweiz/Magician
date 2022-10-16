@@ -1,0 +1,27 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: Gateway
+  cloud:
+    nacos:
+      config:
+        server-addr: 47.100.131.2:8848
+        group: magician
+      discovery:
+        server-addr: 47.100.131.2:8848
+        group: magician
+    gateway:
+      routes:
+        - id: black
+          uri: lb://black-fang
+          predicates:
+            - Path=/api/black/fang/**
+          filters:
+            - StripPrefix=3
+        - id: purple
+          uri: lb://purple-poison
+          predicates:
+            - Path=/api/purple/poison/**
+          filters:
+            - StripPrefix=3

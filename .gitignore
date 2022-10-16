@@ -1,0 +1,7 @@
+# Project exclude paths
+/.gradle/
+/Common/build/
+/Gateway/build/
+/Gateway/build/classes/java/main/
+/Modules/PurplePoison/build/
+/Modules/PurplePoison/build/classes/java/main/
