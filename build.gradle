@@ -17,20 +17,11 @@ allprojects {
     group 'cn.microboat'
     version '1.0-SNAPSHOT'
 
-    // 都使用以下插件
-    apply plugin: 'java'
-    apply plugin: 'org.springframework.boot'
-    apply plugin: 'io.spring.dependency-management'
-
     // 都使用这个仓库
     repositories {
         maven {
             url 'https://maven.aliyun.com/repository/public'
         }
-    }
-
-    test {
-        useJUnitPlatform()
     }
 }
 
@@ -39,6 +30,11 @@ apply from: 'config.gradle'
 
 // 配置所有子模块
 subprojects {
+    // 都使用以下插件
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
     // 依赖引入声明，管理依赖的版本号
     dependencyManagement {
         dependencies {
