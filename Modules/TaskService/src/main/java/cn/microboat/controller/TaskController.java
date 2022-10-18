@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
  * @author zhouwei
  */
 @RestController
-@RequestMapping("/test")
-@Api(value = "测试控制器", tags = "TestController")
-public class TestController {
+@RequestMapping("/task")
+@Api(value = "task", tags = "任务控制器")
+public class TaskController {
 
-    @GetMapping("/test1")
-    @ApiOperation(value = "test1", notes = "测试方法1", httpMethod = "GET")
-    public String test1() {
-        return "test1";
+    @GetMapping("/get")
+    @ApiOperation(value = "get", notes = "获取任务", httpMethod = "GET")
+    public String getTask() {
+        return "task";
     }
+
 }

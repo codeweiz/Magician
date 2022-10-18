@@ -32,6 +32,7 @@ apply from: 'config.gradle'
 subprojects {
     // 都使用以下插件
     apply plugin: 'java'
+    apply plugin: 'java-library'
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
 
@@ -56,20 +57,19 @@ subprojects {
 project(':Common') {
     dependencies {
         // hutool 工具类
-        implementation 'cn.hutool:hutool-all'
+        api 'cn.hutool:hutool-all'
         // guava 工具类
-        implementation 'com.google.guava:guava'
+        api 'com.google.guava:guava'
         // gson
-        implementation 'com.google.code.gson:gson'
+        api 'com.google.code.gson:gson'
         // lombok 插件
-        compileOnly 'org.projectlombok:lombok'
-        annotationProcessor 'org.projectlombok:lombok'
+        api 'org.projectlombok:lombok'
         // slf4j 日志
-        implementation 'org.slf4j:slf4j-api'
-        implementation 'ch.qos.logback:logback-classic'
+        api 'org.slf4j:slf4j-api'
+        api 'ch.qos.logback:logback-classic'
         // knife4j swagger 升级版
-        implementation 'com.github.xiaoymin:knife4j-micro-spring-boot-starter'
-        implementation 'com.github.xiaoymin:knife4j-spring-boot-starter'
+        api 'com.github.xiaoymin:knife4j-micro-spring-boot-starter'
+        api 'com.github.xiaoymin:knife4j-spring-boot-starter'
     }
 }
 
@@ -78,6 +78,7 @@ project(':Gateway') {
     dependencies {
         // 引入公共模块
         implementation project(':Common')
+        annotationProcessor 'org.projectlombok:lombok'
         implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
         implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
         implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'

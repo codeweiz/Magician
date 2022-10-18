@@ -13,12 +13,12 @@ spring:
         group: magician
     gateway:
       routes:
-        - id: black
-          uri: lb://black-fang
+        - id: task
+          uri: lb://task
           predicates:
-            - Path=/api/black/fang/**
+            - Path=/api/task/**
           filters:
-            - StripPrefix=3
+            - StripPrefix=2
         - id: purple
           uri: lb://purple-poison
           predicates:
