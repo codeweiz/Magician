@@ -19,9 +19,9 @@ spring:
             - Path=/api/task/**
           filters:
             - StripPrefix=2
-        - id: purple
-          uri: lb://purple-poison
+        - id: system
+          uri: lb://system
           predicates:
-            - Path=/api/purple/poison/**
+            - Path=/api/system/**
           filters:
-            - StripPrefix=3
+            - StripPrefix=2

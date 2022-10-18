@@ -2,7 +2,7 @@ server:
   port: 9091
 spring:
   application:
-    name: purple-poison
+    name: system
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher

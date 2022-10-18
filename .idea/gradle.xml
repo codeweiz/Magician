@@ -15,7 +15,7 @@
             <option value="$PROJECT_DIR$/Common" />
             <option value="$PROJECT_DIR$/Gateway" />
             <option value="$PROJECT_DIR$/Modules" />
-            <option value="$PROJECT_DIR$/Modules/PurplePoison" />
+            <option value="$PROJECT_DIR$/Modules/SystemService" />
             <option value="$PROJECT_DIR$/Modules/TaskService" />
           </set>
         </option>

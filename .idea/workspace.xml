@@ -4,22 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5dcf1126-4943-4e85-b8fe-a767ebcd3258" name="Changes" comment="fix：更新 build.gradle 文件配置">
-      <change afterPath="$PROJECT_DIR$/Gateway/src/main/java/cn/microboat/config/SwaggerResourceConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/TaskService/src/main/java/cn/microboat/controller/TaskController.java" afterDir="false" />
+    <list default="true" id="5dcf1126-4943-4e85-b8fe-a767ebcd3258" name="Changes" comment="fix：整合 knife4j">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gateway/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/PurplePoison/src/main/java/cn/microboat/config/SwaggerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gateway/src/main/java/cn/microboat/config/SwaggerResourceConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gateway/src/main/java/cn/microboat/config/SwaggerResourceConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gateway/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Gateway/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/PurplePoison/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/TaskService/src/main/java/cn/microboat/config/SwaggerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/PurplePoison/src/main/java/cn/microboat/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/PurplePoison/src/main/java/cn/microboat/controller/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/TaskService/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/PurplePoison/src/main/java/cn/microboat/PurplePoisonApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/SystemServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/PurplePoison/src/main/java/cn/microboat/config/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/config/SwaggerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/PurplePoison/src/main/java/cn/microboat/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/PurplePoison/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/SystemService/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -50,12 +54,33 @@
         <task path="$PROJECT_DIR$/Modules/PurplePoison">
           <activation />
         </task>
+        <task path="$PROJECT_DIR$/Modules/SystemService">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="Magician" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Magician" type="f1a62948:ProjectNode" />
+                <item name="Modules" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Magician" type="f1a62948:ProjectNode" />
+                <item name="Modules" type="2d1252cf:ModuleNode" />
+                <item name="SystemService" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Magician" type="f1a62948:ProjectNode" />
+                <item name="Modules" type="2d1252cf:ModuleNode" />
+                <item name="SystemService" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
               </path>
             </expand>
             <select />
@@ -106,10 +131,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.20811743" />
     <property name="project.structure.side.proportion" value="0.31782177" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
@@ -128,7 +153,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.Magician [dependencies]">
+  <component name="RunManager" selected="Spring Boot.SystemApplication">
     <configuration name="Magician [:Common:bootJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -254,9 +279,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PurplePoisonApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="Magician.Modules.PurplePoison.main" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.microboat.PurplePoisonApplication" />
+    <configuration name="SystemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Magician.Modules.SystemService.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.microboat.SystemServiceApplication" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SHORTEN_COMMAND_LINE" value="NONE" />
       <method v="2">
@@ -293,7 +318,7 @@
       <workItem from="1665910676359" duration="248000" />
       <workItem from="1665910938869" duration="92000" />
       <workItem from="1665911062296" duration="195000" />
-      <workItem from="1665911390657" duration="10610000" />
+      <workItem from="1665911390657" duration="11909000" />
     </task>
     <task id="LOCAL-00001" summary="fix：更新 README.md 文件">
       <created>1665921837883</created>
@@ -316,7 +341,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666019701207</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix：整合 knife4j">
+      <created>1666065300168</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666065300168</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,6 +368,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix：更新 README.md 文件" />
     <MESSAGE value="fix：更新 build.gradle 文件配置" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix：更新 build.gradle 文件配置" />
+    <MESSAGE value="fix：整合 knife4j" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix：整合 knife4j" />
   </component>
 </project>

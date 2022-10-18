@@ -8,7 +8,7 @@ Gateway模块：网关
 
 Modules模块：存放微服务
 
-PurplePoison模块：Modules模块的子模块
+System模块：Modules模块的子模块
 
 TaskService模块：Modules模块的子模块
 
@@ -19,3 +19,8 @@ build.gradle：控制各个模块的依赖
 config.gradle：用来控制依赖的版本信息
 
 settings.gradle：项目的模块结构
+
+
+### 技术栈
+- spring cloud
+- spring boot

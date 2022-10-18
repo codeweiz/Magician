@@ -1,5 +1,5 @@
 rootProject.name = 'Magician'
 include 'Common'
 include 'Gateway'
-include 'Modules:PurplePoison'
+include 'Modules:SystemService'
 include 'Modules:TaskService'

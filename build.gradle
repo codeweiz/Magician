@@ -102,8 +102,8 @@ project(':Modules') {
     }
 }
 
-// 给子模块 Modules 的子模块 PurplePoison 配置依赖
-project(':Modules:PurplePoison') {
+// 给子模块 Modules 的子模块 SystemService 配置依赖
+project(':Modules:SystemService') {
     dependencies {
     }
 }

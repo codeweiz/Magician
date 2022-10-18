@@ -9,8 +9,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-public class PurplePoisonApplication {
+public class SystemServiceApplication {
     public static void main(String[] args) {
-        SpringApplication.run(PurplePoisonApplication.class, args);
+        SpringApplication.run(SystemServiceApplication.class, args);
     }
 }
