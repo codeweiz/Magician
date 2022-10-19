@@ -11,7 +11,7 @@ spring:
     nacos:
       config:
         server-addr: 47.100.131.2:8848
-        group: magician
+        group: magician-dev
       discovery:
         server-addr: 47.100.131.2:8848
-        group: magician
+        group: magician-dev

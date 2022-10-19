@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TaskController {
 
     @GetMapping("/get")
-    @ApiOperation(value = "get", notes = "获取任务", httpMethod = "GET")
+    @ApiOperation(value = "获取任务", notes = "获取任务", httpMethod = "GET")
     public String getTask() {
         return "task";
     }

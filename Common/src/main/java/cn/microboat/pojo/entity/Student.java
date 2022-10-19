@@ -1,4 +1,4 @@
-package cn.microboat.pojo;
+package cn.microboat.pojo.entity;
 
 import lombok.Data;
 

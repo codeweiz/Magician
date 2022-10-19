@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/test")
-@Api(value = "测试控制器", tags = "TestController")
+@Api(value = "TestController", tags = "TestController")
 public class TestController {
 
     @GetMapping("/test1")
