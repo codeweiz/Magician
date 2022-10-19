@@ -1,5 +1,6 @@
 ext {
     version = [
+            "netflixHystrixVersion": "2.2.10.RELEASE",
             "druidVersion"        : "1.2.13-SNSAPSHOT",
             "mysqlVersion"        : "8.0.30",
             "guavaVersion"        : "31.1-jre",
@@ -13,6 +14,7 @@ ext {
     ]
 
     dependencies = [
+            "netflixHystrix": "org.springframework.cloud:spring-cloud-starter-netflix-hystrix:${version.netflixHystrixVersion}",
             "druid"                 : "com.alibaba:druid-spring-boot-starter:${version.druidVersion}",
             "mysql"                 : "mysql:mysql-connector-java:${version.mysqlVersion}",
             "guava"                 : "com.google.guava:guava:${version.guavaVersion}",

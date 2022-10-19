@@ -12,6 +12,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Api" />
+            <option value="$PROJECT_DIR$/Api/SystemApi" />
             <option value="$PROJECT_DIR$/Common" />
             <option value="$PROJECT_DIR$/Gateway" />
             <option value="$PROJECT_DIR$/Modules" />

@@ -15,3 +15,6 @@ spring:
       discovery:
         server-addr: 47.100.131.2:8848
         group: magician-dev
+feign:
+  circuitbreaker:
+    enabled: true

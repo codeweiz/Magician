@@ -3,3 +3,5 @@ include 'Common'
 include 'Gateway'
 include 'Modules:SystemService'
 include 'Modules:TaskService'
+include 'Api:SystemApi'
+
