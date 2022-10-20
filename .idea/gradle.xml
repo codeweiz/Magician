@@ -15,6 +15,8 @@
             <option value="$PROJECT_DIR$/Api" />
             <option value="$PROJECT_DIR$/Api/SystemApi" />
             <option value="$PROJECT_DIR$/Common" />
+            <option value="$PROJECT_DIR$/Common/CommonCore" />
+            <option value="$PROJECT_DIR$/Common/CommonDatasource" />
             <option value="$PROJECT_DIR$/Gateway" />
             <option value="$PROJECT_DIR$/Modules" />
             <option value="$PROJECT_DIR$/Modules/SystemService" />

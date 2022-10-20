@@ -1,8 +1,8 @@
 package cn.microboat.service;
 
-import cn.microboat.Return;
+import cn.microboat.core.Return;
 import cn.microboat.factory.RemoteUserFallbackFactory;
-import cn.microboat.pojo.dto.UserDto;
+import cn.microboat.core.pojo.dto.UserDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -53,8 +53,8 @@ subprojects {
     }
 }
 
-// 给子模块 Common 配置依赖
-project(':Common') {
+// 给子模块 Common 的 CommonCore 配置依赖
+project(':Common:CommonCore') {
     dependencies {
         // spring cloud openfeign
         api 'org.springframework.cloud:spring-cloud-starter-openfeign'
@@ -81,6 +81,18 @@ project(':Common') {
     }
 }
 
+// 给子模块 Common 的 CommonDatasource 配置依赖
+project(':Common:CommonDatasource') {
+    dependencies {
+        // mybatis-plus 数据库操作
+        api 'com.baomidou:mybatis-plus-boot-starter'
+        // druid
+        api 'com.alibaba:druid-spring-boot-starter'
+        // mysql
+        api 'mysql:mysql-connector-java'
+    }
+}
+
 // 给子模块 Api 配置依赖
 project(':Api') {
     // 所有 Api 的子模块都配置
@@ -93,8 +105,8 @@ project(':Api') {
 // 给子模块 Api 的子模块 SystemApi 配置依赖
 project(':Api:SystemApi') {
     dependencies {
-        // 引入公共模块
-        implementation project(':Common')
+        // 引入公共模块 CommonCore
+        implementation project(':Common:CommonCore')
         annotationProcessor 'org.projectlombok:lombok'
     }
 }
@@ -102,8 +114,8 @@ project(':Api:SystemApi') {
 // 给子模块 Gateway 配置依赖
 project(':Gateway') {
     dependencies {
-        // 引入公共模块
-        implementation project(':Common')
+        // 引入公共模块 CommonCore
+        implementation project(':Common:CommonCore')
         annotationProcessor 'org.projectlombok:lombok'
         implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
         implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
@@ -118,12 +130,14 @@ project(':Modules') {
     // 所有 Modules 的子模块都配置
     subprojects {
         dependencies {
-            // 引入公共模块
-            implementation project(':Common')
+            // 引入公共模块 CommonCore
+            implementation project(':Common:CommonCore')
             implementation project(':Api:SystemApi')
             implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
             implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
+            // 支持 bootstrap.yml、bootstrap.properties 作为配置文件
             implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
+            // tomcat web
             implementation 'org.springframework.boot:spring-boot-starter-web'
         }
     }
@@ -132,6 +146,12 @@ project(':Modules') {
 // 给子模块 Modules 的子模块 SystemService 配置依赖
 project(':Modules:SystemService') {
     dependencies {
+        // 引入公共模块 CommonDatasource
+        implementation project(':Common:CommonDatasource')
+        // mapstruct 映射工具
+        implementation 'org.mapstruct:mapstruct'
+        // mapstruct annotationProcessor
+        annotationProcessor 'org.mapstruct:mapstruct-processor'
     }
 }
 

@@ -1,25 +1,28 @@
 ext {
     version = [
             "netflixHystrixVersion": "2.2.10.RELEASE",
-            "druidVersion"        : "1.2.13-SNSAPSHOT",
-            "mysqlVersion"        : "8.0.30",
-            "guavaVersion"        : "31.1-jre",
-            "hutoolVersion"       : "5.8.8",
-            "jjwtVersion"         : "0.9.0",
-            "mybatisPlusVersion"  : "3.5.2",
-            "lombokVersion"       : "1.18.24",
-            "slf4jApiVersion"     : "1.7.36",
-            "logbackVersion"      : "1.2.11",
-            "knife4jVersion"      : "3.0.3"
+            "druidVersion"         : "1.2.13",
+            "mysqlVersion"         : "8.0.30",
+            "mapstructVersion"     : "1.5.3.Final",
+            "guavaVersion"         : "31.1-jre",
+            "hutoolVersion"        : "5.8.8",
+            "jjwtApiVersion"       : "0.11.5",
+            "mybatisPlusVersion"   : "3.5.2",
+            "lombokVersion"        : "1.18.24",
+            "slf4jApiVersion"      : "1.7.36",
+            "logbackVersion"       : "1.2.11",
+            "knife4jVersion"       : "3.0.3"
     ]
 
     dependencies = [
-            "netflixHystrix": "org.springframework.cloud:spring-cloud-starter-netflix-hystrix:${version.netflixHystrixVersion}",
+            "netflixHystrix"        : "org.springframework.cloud:spring-cloud-starter-netflix-hystrix:${version.netflixHystrixVersion}",
             "druid"                 : "com.alibaba:druid-spring-boot-starter:${version.druidVersion}",
             "mysql"                 : "mysql:mysql-connector-java:${version.mysqlVersion}",
+            "mapstruct"             : "org.mapstruct:mapstruct:${version.mapstructVersion}",
+            "mapstructProcessor"    : "org.mapstruct:mapstruct-processor:${version.mapstructVersion}",
             "guava"                 : "com.google.guava:guava:${version.guavaVersion}",
             "hutool"                : "cn.hutool:hutool-all:${version.hutoolVersion}",
-            "jjwt"                  : "io.jsonwebtoken:jjwt:${version.jjwtVersion}",
+            "jjwtApi"               : "io.jsonwebtoken:jjwt-api:${version.jjwtApiVersion}",
             "mybatis-plus"          : "com.baomidou:mybatis-plus-boot-starter:${version.mybatisPlusVersion}",
             "mybatis-plus-generator": "com.baomidou:mybatis-plus-generator:${version.mybatisPlusVersion}",
             "lombok"                : "org.projectlombok:lombok:${version.lombokVersion}",

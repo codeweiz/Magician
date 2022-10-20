@@ -1,4 +1,4 @@
-package cn.microboat;
+package cn.microboat.core;
 
 /**
  * 公共返回类

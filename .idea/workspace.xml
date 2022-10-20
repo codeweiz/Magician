@@ -4,17 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5dcf1126-4943-4e85-b8fe-a767ebcd3258" name="Changes" comment="fix：更新公共模块实体、nacos分组，避免和生产环境混淆">
-      <change afterPath="$PROJECT_DIR$/Api/SystemApi/src/main/java/cn/microboat/factory/RemoteUserFallbackFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/SystemApi/src/main/java/cn/microboat/service/RemoteUserService.java" afterDir="false" />
+    <list default="true" id="5dcf1126-4943-4e85-b8fe-a767ebcd3258" name="Changes" comment="fix：">
+      <change afterPath="$PROJECT_DIR$/Common/CommonCore/src/main/java/cn/microboat/core/BasicMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/CommonCore/src/main/java/cn/microboat/core/Page.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/CommonCore/src/main/java/cn/microboat/core/pojo/dto/UserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/CommonCore/src/main/java/cn/microboat/core/pojo/vo/UserVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/CommonCore/src/main/java/cn/microboat/core/utils/CryptoUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/CommonDatasource/src/main/java/cn/microboat/entity/BasicEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/CommonDatasource/src/main/java/cn/microboat/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/CommonDatasource/src/main/java/cn/microboat/handler/CommonMetaObjectHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/dao/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/mapper/User2DtoMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/mapper/User2VoMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/mapper/converter/UserMapperConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/service/LoginService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/service/impl/LoginServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/SystemApi/src/main/java/cn/microboat/factory/RemoteUserFallbackFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api/SystemApi/src/main/java/cn/microboat/factory/RemoteUserFallbackFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/SystemApi/src/main/java/cn/microboat/service/RemoteUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api/SystemApi/src/main/java/cn/microboat/service/RemoteUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/main/java/cn/microboat/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/CommonCore/src/main/java/cn/microboat/core/Constant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/main/java/cn/microboat/Return.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/CommonCore/src/main/java/cn/microboat/core/Return.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/main/java/cn/microboat/pojo/dto/UserDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/main/java/cn/microboat/pojo/entity/Student.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/SystemServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/SystemServiceApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/TaskService/src/main/java/cn/microboat/TaskServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/TaskService/src/main/java/cn/microboat/TaskServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/SystemService/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/SystemService/src/main/resources/bootstrap.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/TaskService/src/main/java/cn/microboat/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/TaskService/src/main/java/cn/microboat/controller/TaskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/TaskService/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/TaskService/src/main/resources/bootstrap.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/config.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
@@ -62,6 +80,15 @@
         <task path="$PROJECT_DIR$/Api/SystemApi">
           <activation />
         </task>
+        <task path="$PROJECT_DIR$/Api">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/Common/CommonCore">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/Common/CommonDatasource">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -72,91 +99,39 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="Magician" type="f1a62948:ProjectNode" />
+                <item name="Api" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Magician" type="f1a62948:ProjectNode" />
                 <item name="Modules" type="2d1252cf:ModuleNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="Magician" type="f1a62948:ProjectNode" />
                 <item name="Modules" type="2d1252cf:ModuleNode" />
-                <item name="TaskService" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="Magician" type="f1a62948:ProjectNode" />
                 <item name="Modules" type="2d1252cf:ModuleNode" />
-                <item name="TaskService" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="SystemService" type="2d1252cf:ModuleNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="Magician" type="f1a62948:ProjectNode" />
                 <item name="Modules" type="2d1252cf:ModuleNode" />
-                <item name="TaskService" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="SystemService" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="Magician" type="f1a62948:ProjectNode" />
                 <item name="Modules" type="2d1252cf:ModuleNode" />
-                <item name="TaskService" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-                <item name="project Common" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Magician" type="f1a62948:ProjectNode" />
-                <item name="Modules" type="2d1252cf:ModuleNode" />
-                <item name="TaskService" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-                <item name="project Common" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
-                <item name="org.springframework.cloud:spring-cloud-starter-loadbalancer:3.1.4" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Magician" type="f1a62948:ProjectNode" />
-                <item name="Modules" type="2d1252cf:ModuleNode" />
-                <item name="TaskService" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-                <item name="project Common" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
-                <item name="org.springframework.cloud:spring-cloud-starter-loadbalancer:3.1.4" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
-                <item name="org.springframework.boot:spring-boot-starter-cache:2.7.4" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Magician" type="f1a62948:ProjectNode" />
-                <item name="Modules" type="2d1252cf:ModuleNode" />
-                <item name="TaskService" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-                <item name="project Common" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
-                <item name="org.springframework.cloud:spring-cloud-starter-loadbalancer:3.1.4" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
-                <item name="org.springframework.cloud:spring-cloud-loadbalancer:3.1.4" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Magician" type="f1a62948:ProjectNode" />
-                <item name="Modules" type="2d1252cf:ModuleNode" />
-                <item name="TaskService" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-                <item name="project Common" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
-                <item name="org.springframework.cloud:spring-cloud-starter-loadbalancer:3.1.4" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
-                <item name="org.springframework.cloud:spring-cloud-loadbalancer:3.1.4" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
-                <item name="io.projectreactor.addons:reactor-extra:3.4.8" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Magician" type="f1a62948:ProjectNode" />
-                <item name="Modules" type="2d1252cf:ModuleNode" />
-                <item name="TaskService" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-                <item name="project Common" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
-                <item name="org.springframework.cloud:spring-cloud-starter-openfeign:3.1.4" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="SystemService" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -222,24 +197,43 @@
       <recent name="$PROJECT_DIR$/Common/src/main/java/cn/microboat" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Common" />
       <recent name="$PROJECT_DIR$/Api" />
       <recent name="$PROJECT_DIR$/Modules" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="cn.microboat.config" />
+      <recent name="cn.microboat.mapper.converter" />
+      <recent name="cn.microboat.currency" />
+      <recent name="cn.microboat.pojo.entity" />
     </key>
   </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
-        <option value="Application" />
         <option value="SpringBootApplicationConfigurationType" />
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.TaskServiceApplication">
-    <configuration name="Magician:Gateway [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Spring Boot.SystemApplication">
+    <configuration name="CryptoUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.microboat.core.utils.CryptoUtils" />
+      <module name="Magician.Common.CommonCore.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.microboat.core.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Magician:Common:CommonDatasource [classes]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/Gateway" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Common/CommonDatasource" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
         <option name="taskDescriptions">
@@ -247,7 +241,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="build" />
+            <option value="classes" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -257,7 +251,28 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Magician:Modules:SystemService [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Magician:Modules [assemble]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Modules" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="assemble" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Magician:Modules:SystemService [classes]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/Modules/SystemService" />
@@ -268,7 +283,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="build" />
+            <option value="classes" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -282,48 +297,6 @@
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/Modules/SystemService" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="clean" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="Magician:Modules:TaskService [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/Modules/TaskService" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="Magician:Modules:TaskService [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/Modules/TaskService" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
         <option name="taskDescriptions">
@@ -379,11 +352,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Magician:Modules:TaskService [build]" />
-        <item itemvalue="Gradle.Magician:Modules:TaskService [clean]" />
-        <item itemvalue="Gradle.Magician:Modules:SystemService [build]" />
+        <item itemvalue="Application.CryptoUtils" />
+        <item itemvalue="Gradle.Magician:Modules:SystemService [classes]" />
         <item itemvalue="Gradle.Magician:Modules:SystemService [clean]" />
-        <item itemvalue="Gradle.Magician:Gateway [build]" />
+        <item itemvalue="Gradle.Magician:Modules [assemble]" />
+        <item itemvalue="Gradle.Magician:Common:CommonDatasource [classes]" />
       </list>
     </recent_temporary>
   </component>
@@ -400,7 +373,7 @@
       <workItem from="1665910676359" duration="248000" />
       <workItem from="1665910938869" duration="92000" />
       <workItem from="1665911062296" duration="195000" />
-      <workItem from="1665911390657" duration="41527000" />
+      <workItem from="1665911390657" duration="76928000" />
     </task>
     <task id="LOCAL-00001" summary="fix：更新 README.md 文件">
       <created>1665921837883</created>
@@ -451,7 +424,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666163986620</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fix：抽出微服务的api，方便其他微服务进行openfeign调用；添加 spring-cloud-netflix-hystrix 依赖，并开启feign.circuitbreaker.enabled=true使用服务熔断">
+      <created>1666177951795</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1666177951795</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -475,6 +455,7 @@
     <MESSAGE value="fix：修改 PurplePoison 为 System" />
     <MESSAGE value="fix：gateway 配置 cors config 解决跨域问题" />
     <MESSAGE value="fix：更新公共模块实体、nacos分组，避免和生产环境混淆" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix：更新公共模块实体、nacos分组，避免和生产环境混淆" />
+    <MESSAGE value="fix：抽出微服务的api，方便其他微服务进行openfeign调用；添加 spring-cloud-netflix-hystrix 依赖，并开启feign.circuitbreaker.enabled=true使用服务熔断" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix：抽出微服务的api，方便其他微服务进行openfeign调用；添加 spring-cloud-netflix-hystrix 依赖，并开启feign.circuitbreaker.enabled=true使用服务熔断" />
   </component>
 </project>

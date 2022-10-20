@@ -1,7 +1,7 @@
 package cn.microboat.controller;
 
-import cn.microboat.Return;
-import cn.microboat.pojo.dto.UserDto;
+import cn.microboat.core.Return;
+import cn.microboat.core.pojo.dto.UserDto;
 import cn.microboat.service.RemoteUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
