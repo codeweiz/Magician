@@ -1,13 +1,14 @@
 package cn.microboat.service;
 
 import cn.microboat.core.Return;
+import cn.microboat.core.pojo.vo.UserVo;
 import cn.microboat.factory.RemoteUserFallbackFactory;
-import cn.microboat.core.pojo.dto.UserDto;
+import io.swagger.annotations.ApiParam;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
+import java.util.List;
 
 /**
  * @author zhouwei
@@ -16,30 +17,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface RemoteUserService {
 
     /**
-     * 用户登陆
-     *
-     * @param userDto 用户传输对象
-     * @return Return<String>
-     */
-    @PostMapping("/user/login")
-    Return<String> login(@RequestBody UserDto userDto);
-
-    /**
-     * 用户注册
-     *
-     * @param userDto 用户传输对象
-     * @return Return<String>
-     */
-    @PostMapping("/user/register")
-    Return<String> register(@RequestBody UserDto userDto);
-
-    /**
-     * 获取用户信息
+     * 根据用户名获取用户信息
      *
      * @param username 用户名
-     * @return Return<UserDto>
+     * @return Return<UserVo>
      */
     @GetMapping("/user/userInfo/{username}")
-    Return<UserDto> userInfo(@PathVariable(value = "username") String username);
+    Return<UserVo> userInfo(@ApiParam @PathVariable(value = "username") String username);
+
+    /**
+     * 查询所有的用户信息
+     *
+     * @return Return<List < UserVo>>
+     */
+    @GetMapping("/user/list")
+    Return<List<UserVo>> list();
 
 }

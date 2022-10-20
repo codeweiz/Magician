@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5dcf1126-4943-4e85-b8fe-a767ebcd3258" name="Changes" comment="feat：Common 抽出 core 模块和datasource 模块；增加密码加密；实现 user 表的增删改查；引入 mapstruct 映射工具；引入 mybatis-plus 进行数据库访问">
-      <change afterPath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/CommonCore/src/main/java/cn/microboat/core/pojo/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/CommonCore/src/main/java/cn/microboat/core/pojo/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/CommonCore/src/main/java/cn/microboat/core/pojo/vo/UserVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/CommonCore/src/main/java/cn/microboat/core/pojo/vo/UserVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/CommonDatasource/src/main/java/cn/microboat/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/CommonDatasource/src/main/java/cn/microboat/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/service/impl/LoginServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/service/impl/LoginServiceImpl.java" afterDir="false" />
+    <list default="true" id="5dcf1126-4943-4e85-b8fe-a767ebcd3258" name="Changes" comment="fix：代码优化">
+      <change afterPath="$PROJECT_DIR$/Api/SystemApi/src/main/java/cn/microboat/factory/RemoteLoginFallbackFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api/SystemApi/src/main/java/cn/microboat/service/RemoteLoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/SystemApi/src/main/java/cn/microboat/factory/RemoteUserFallbackFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api/SystemApi/src/main/java/cn/microboat/factory/RemoteUserFallbackFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/SystemApi/src/main/java/cn/microboat/service/RemoteUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api/SystemApi/src/main/java/cn/microboat/service/RemoteUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/TaskService/src/main/java/cn/microboat/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/TaskService/src/main/java/cn/microboat/controller/TaskController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -349,7 +347,7 @@
       <workItem from="1665910676359" duration="248000" />
       <workItem from="1665910938869" duration="92000" />
       <workItem from="1665911062296" duration="195000" />
-      <workItem from="1665911390657" duration="78356000" />
+      <workItem from="1665911390657" duration="79621000" />
     </task>
     <task id="LOCAL-00001" summary="fix：更新 README.md 文件">
       <created>1665921837883</created>
@@ -414,7 +412,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666268364641</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fix：代码优化">
+      <created>1666269838699</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1666269838699</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -440,6 +445,7 @@
     <MESSAGE value="fix：更新公共模块实体、nacos分组，避免和生产环境混淆" />
     <MESSAGE value="fix：抽出微服务的api，方便其他微服务进行openfeign调用；添加 spring-cloud-netflix-hystrix 依赖，并开启feign.circuitbreaker.enabled=true使用服务熔断" />
     <MESSAGE value="feat：Common 抽出 core 模块和datasource 模块；增加密码加密；实现 user 表的增删改查；引入 mapstruct 映射工具；引入 mybatis-plus 进行数据库访问" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat：Common 抽出 core 模块和datasource 模块；增加密码加密；实现 user 表的增删改查；引入 mapstruct 映射工具；引入 mybatis-plus 进行数据库访问" />
+    <MESSAGE value="fix：代码优化" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix：代码优化" />
   </component>
 </project>

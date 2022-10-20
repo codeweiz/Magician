@@ -2,6 +2,8 @@ package cn.microboat.controller;
 
 import cn.microboat.core.Return;
 import cn.microboat.core.pojo.dto.UserDto;
+import cn.microboat.core.pojo.vo.UserVo;
+import cn.microboat.service.RemoteLoginService;
 import cn.microboat.service.RemoteUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -19,10 +21,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class TaskController {
 
     private final RemoteUserService remoteUserService;
+    private final RemoteLoginService remoteLoginService;
 
     @Autowired
-    TaskController(RemoteUserService remoteUserService) {
+    TaskController(RemoteUserService remoteUserService, RemoteLoginService remoteLoginService) {
         this.remoteUserService = remoteUserService;
+        this.remoteLoginService = remoteLoginService;
     }
 
     @GetMapping("/get")
@@ -34,8 +38,17 @@ public class TaskController {
 
     @GetMapping("/openfeign")
     @ApiOperation(value = "测试openfeign", notes = "测试openfeign", httpMethod = "GET")
-    public Return<UserDto> testOpenfeign() {
+    public Return<UserVo> testOpenfeign() {
         return remoteUserService.userInfo("admin");
+    }
+
+    @GetMapping("/openfeign2")
+    @ApiOperation(value = "测试openfeign2", notes = "测试openfeign2", httpMethod = "GET")
+    public Return<UserVo> testOpenfeign2() {
+        UserDto userDto = new UserDto();
+        userDto.setUsername("admin");
+        userDto.setPassword("admin");
+        return remoteLoginService.login(userDto);
     }
 
 }
