@@ -47,6 +47,16 @@ public class UserServiceImpl extends ServiceImpl<UserRepository, User> implement
     }
 
     /**
+     * 根据 username 查询用户信息
+     *
+     * @param username 用户名
+     * @return User
+     */
+    private User getUserByUsername(String username) {
+        return userRepository.selectOne(new QueryWrapper<User>().eq("username", username).eq("delete_flag", 0));
+    }
+
+    /**
      * 添加一个用户
      *
      * @param userDto 用户传递的参数
@@ -183,7 +193,7 @@ public class UserServiceImpl extends ServiceImpl<UserRepository, User> implement
         if (StrUtil.isBlankIfStr(username)) {
             return Return.fail("username is blank");
         }
-        User user = userRepository.findUserByUsername(username);
+        User user = getUserByUsername(username);
         // 查询的用户为 null
         if (ObjectUtil.isEmpty(user)) {
             return Return.fail("The user obtained by username is null");

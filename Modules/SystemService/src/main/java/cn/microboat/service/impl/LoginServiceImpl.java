@@ -88,16 +88,16 @@ public class LoginServiceImpl extends ServiceImpl<UserRepository, User> implemen
             return Return.fail("username is blank");
         }
 
+        // password 为空
+        if (StrUtil.isBlankIfStr(userDto.getPassword())) {
+            return Return.fail("password is blank");
+        }
+
         User user = getUserByUsername(userDto.getUsername());
 
         // 数据库中没有这个用户名的用户
         if (ObjectUtil.isEmpty(user)) {
             return Return.fail("user obtained by username of userDto is null");
-        }
-
-        // 数据库中密码为空
-        if (StrUtil.isBlankIfStr(user.getPassword())) {
-            return Return.fail("The password in database is blank");
         }
 
         // 密码正确

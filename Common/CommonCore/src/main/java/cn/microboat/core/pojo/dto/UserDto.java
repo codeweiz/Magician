@@ -38,6 +38,16 @@ public class UserDto {
     private LocalDateTime birthday;
 
     /**
+     * 手机号码
+     */
+    private String phoneNumber;
+
+    /**
+     * 电子邮箱
+     */
+    private String email;
+
+    /**
      * 创建人
      */
     private String createBy;
@@ -100,6 +110,22 @@ public class UserDto {
 
     public void setBirthday(LocalDateTime birthday) {
         this.birthday = birthday;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getCreateBy() {

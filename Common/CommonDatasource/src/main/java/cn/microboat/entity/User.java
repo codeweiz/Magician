@@ -37,6 +37,19 @@ public class User extends BasicEntity {
     @TableField
     private LocalDateTime birthday;
 
+    /**
+     * 手机号码
+     */
+    @TableField
+    private String phoneNumber;
+
+    /**
+     * 电子邮箱
+     */
+    @TableField
+    private String email;
+
+
     public String getUsername() {
         return username;
     }
@@ -67,5 +80,21 @@ public class User extends BasicEntity {
 
     public void setBirthday(LocalDateTime birthday) {
         this.birthday = birthday;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

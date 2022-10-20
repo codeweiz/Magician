@@ -1,15 +1,16 @@
 package cn.microboat.controller;
 
 import cn.microboat.core.Return;
-import cn.microboat.core.pojo.dto.UserDto;
 import cn.microboat.core.pojo.vo.UserVo;
-import cn.microboat.service.LoginService;
 import cn.microboat.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -22,30 +23,10 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
-    private final LoginService loginService;
 
     @Autowired
-    UserController(UserService userService, LoginService loginService) {
+    UserController(UserService userService) {
         this.userService = userService;
-        this.loginService = loginService;
-    }
-
-    @ApiOperation(value = "register", notes = "注册")
-    @PostMapping("/register")
-    public Return<UserVo> register(@ApiParam @RequestBody UserDto userDto) {
-        return loginService.register(userDto);
-    }
-
-    @ApiOperation(value = "login", notes = "登陆")
-    @PostMapping("/login")
-    public Return<UserVo> login(@ApiParam @RequestBody UserDto userDto) {
-        return loginService.login(userDto);
-    }
-
-    @ApiOperation(value = "resetPassword", notes = "重制密码")
-    @PostMapping("/resetPassword")
-    public Return<UserVo> resetPassword(@ApiParam @RequestBody UserDto userDto) {
-        return loginService.resetPassword(userDto);
     }
 
     @ApiOperation(value = "userInfo", notes = "获取用户信息")
