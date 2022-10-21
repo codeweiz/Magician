@@ -8,10 +8,12 @@ ext {
             "hutoolVersion"        : "5.8.8",
             "jjwtApiVersion"       : "0.11.5",
             "mybatisPlusVersion"   : "3.5.2",
+            "mybatisVersion"       : "2.2.2",
             "lombokVersion"        : "1.18.24",
             "slf4jApiVersion"      : "1.7.36",
             "logbackVersion"       : "1.2.11",
-            "knife4jVersion"       : "3.0.3"
+            "knife4jVersion"       : "3.0.3",
+            "fastjsonVersion"      : "2.0.15"
     ]
 
     dependencies = [
@@ -23,12 +25,14 @@ ext {
             "guava"                 : "com.google.guava:guava:${version.guavaVersion}",
             "hutool"                : "cn.hutool:hutool-all:${version.hutoolVersion}",
             "jjwtApi"               : "io.jsonwebtoken:jjwt-api:${version.jjwtApiVersion}",
+            "mybatis"               : "org.mybatis.spring.boot:mybatis-spring-boot-starter:${version.mybatisVersion}",
             "mybatis-plus"          : "com.baomidou:mybatis-plus-boot-starter:${version.mybatisPlusVersion}",
             "mybatis-plus-generator": "com.baomidou:mybatis-plus-generator:${version.mybatisPlusVersion}",
             "lombok"                : "org.projectlombok:lombok:${version.lombokVersion}",
             "slf4j"                 : "org.slf4j:slf4j-api:${version.slf4jApiVersion}",
             "logback"               : "ch.qos.logback:logback-classic:${version.logbackVersion}",
             "knife4j-micro"         : "com.github.xiaoymin:knife4j-micro-spring-boot-starter:${version.knife4jVersion}",
-            "knife4j"               : "com.github.xiaoymin:knife4j-spring-boot-starter:${version.knife4jVersion}"
+            "knife4j"               : "com.github.xiaoymin:knife4j-spring-boot-starter:${version.knife4jVersion}",
+            "fastJson"              : "com.alibaba.fastjson2:fastjson2:${version.fastjsonVersion}"
     ]
 }

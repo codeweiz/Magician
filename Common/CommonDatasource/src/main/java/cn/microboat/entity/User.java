@@ -49,6 +49,22 @@ public class User extends BasicEntity {
     @TableField
     private String email;
 
+    public User() {
+    }
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public User(String username, String password, Integer gender, LocalDateTime birthday, String phoneNumber, String email) {
+        this.username = username;
+        this.password = password;
+        this.gender = gender;
+        this.birthday = birthday;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+    }
 
     public String getUsername() {
         return username;

@@ -72,6 +72,25 @@ public class UserDto {
     public UserDto() {
     }
 
+    public UserDto(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public UserDto(Integer id, String username, String password, String gender, LocalDateTime birthday, String phoneNumber, String email, String createBy, LocalDateTime createTime, String updateBy, LocalDateTime updateTime) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.gender = gender;
+        this.birthday = birthday;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.createBy = createBy;
+        this.createTime = createTime;
+        this.updateBy = updateBy;
+        this.updateTime = updateTime;
+    }
+
     public Integer getId() {
         return id;
     }

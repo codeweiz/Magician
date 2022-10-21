@@ -1,7 +1,11 @@
 rootProject.name = 'Magician'
 include 'Common:CommonCore'
 include 'Common:CommonDatasource'
+include 'Common:CommonRedis'
+include 'Common:CommonWeb'
 include 'Gateway'
 include 'Modules:SystemService'
 include 'Modules:TaskService'
+include 'Modules:AuthService'
 include 'Api:SystemApi'
+

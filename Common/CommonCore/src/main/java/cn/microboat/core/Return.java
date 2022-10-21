@@ -41,6 +41,18 @@ public class Return<T> {
 
     /**
      * 成功
+     *
+     * @return Return
+     */
+    public static <T> Return<T> succeed() {
+        return new Return<>(true, null, null);
+    }
+
+    /**
+     * 成功
+     *
+     * @param t T
+     * @return Return
      */
     public static <T> Return<T> succeed(T t) {
         return new Return<>(true, t, null);

@@ -1,6 +1,6 @@
 server:
   port: 9000
-  address: 192.168.0.126
+  address: 192.168.0.33
 spring:
   application:
     name: Gateway
@@ -14,6 +14,12 @@ spring:
         group: magician-dev
     gateway:
       routes:
+        - id: auth
+          uri: lb://auth
+          predicates:
+            - Path=/api/auth/**
+          filters:
+            - StripPrefix=2
         - id: task
           uri: lb://task
           predicates:

@@ -1,4 +1,4 @@
-package cn.microboat.core;
+package cn.microboat.core.constant;
 
 /**
  * @author zhouwei

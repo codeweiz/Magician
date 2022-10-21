@@ -1,6 +1,6 @@
 package cn.microboat.mapper.converter;
 
-import cn.microboat.core.Constant;
+import cn.microboat.core.constant.Constant;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
