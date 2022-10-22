@@ -1,5 +1,6 @@
-package cn.microboat.mapper.converter;
+package cn.microboat.core.mapper.converter;
 
+import cn.hutool.core.util.ObjectUtil;
 import cn.microboat.core.constant.Constant;
 
 import java.time.LocalDateTime;
@@ -16,6 +17,9 @@ public class UserMapperConverter {
      * 性别整型转字符串型
      */
     public static String genderToString(Integer integer) {
+        if (ObjectUtil.isEmpty(integer)) {
+            return "";
+        }
         switch (integer) {
             case 0:
                 return Constant.GENDER_FEMALE;

@@ -1,14 +1,13 @@
 package cn.microboat.core.utils;
 
-import cn.hutool.core.codec.Base64;
 import cn.microboat.core.constant.SecurityConstants;
 import cn.microboat.core.constant.TokenConstants;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.io.Decoders;
+import io.jsonwebtoken.security.Keys;
 
 import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
 import java.util.Map;
 
 /**
@@ -16,16 +15,19 @@ import java.util.Map;
  */
 public class JwtUtils {
 
-    private static final String SECRET = TokenConstants.SECRET;
+    /**
+     * 一定要超过 32 个字符
+     */
+    private static final String SECRET = TokenConstants.SECRET + TokenConstants.SECRET;
+
 
     /**
      * 生成加密 Key
      *
      * @return SecretKey
      */
-    public static SecretKey generateKey() {
-        byte[] decode = Base64.decode(SECRET);
-        return new SecretKeySpec(decode, 0, decode.length, "AES");
+    public static SecretKey generalKeyByDecoders() {
+        return Keys.hmacShaKeyFor(Decoders.BASE64.decode(SECRET));
     }
 
     /**
@@ -35,7 +37,7 @@ public class JwtUtils {
      * @return token 令牌
      */
     public static String createToken(Map<String, Object> claims) {
-        return Jwts.builder().setClaims(claims).signWith(generateKey(), SignatureAlgorithm.HS256).compact();
+        return Jwts.builder().setClaims(claims).signWith(generalKeyByDecoders()).compact();
     }
 
     /**
@@ -45,7 +47,7 @@ public class JwtUtils {
      * @return Claims 数据声明
      */
     public static Claims parseToken(String token) {
-        return Jwts.parserBuilder().setSigningKey(generateKey()).build().parseClaimsJws(token).getBody();
+        return Jwts.parserBuilder().setSigningKey(generalKeyByDecoders()).build().parseClaimsJws(token).getBody();
     }
 
     /**
@@ -53,7 +55,7 @@ public class JwtUtils {
      *
      * @param token 令牌
      * @return 用户id
-     * */
+     */
     public static String getUserKey(String token) {
         Claims claims = parseToken(token);
         return ConvertUtils.toStr(claims.get(SecurityConstants.USER_KEY), "");
@@ -64,7 +66,7 @@ public class JwtUtils {
      *
      * @param token 令牌
      * @return 用户id
-     * */
+     */
     public static String getUserId(String token) {
         Claims claims = parseToken(token);
         return ConvertUtils.toStr(claims.get(SecurityConstants.DETAILS_USER_ID), "");
@@ -75,7 +77,7 @@ public class JwtUtils {
      *
      * @param token 令牌
      * @return 用户id
-     * */
+     */
     public static String getUserName(String token) {
         Claims claims = parseToken(token);
         return ConvertUtils.toStr(claims.get(SecurityConstants.DETAILS_USERNAME), "");

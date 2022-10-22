@@ -18,6 +18,7 @@
             <option value="$PROJECT_DIR$/Common/CommonCore" />
             <option value="$PROJECT_DIR$/Common/CommonDatasource" />
             <option value="$PROJECT_DIR$/Common/CommonRedis" />
+            <option value="$PROJECT_DIR$/Common/CommonSecurity" />
             <option value="$PROJECT_DIR$/Common/CommonWeb" />
             <option value="$PROJECT_DIR$/Gateway" />
             <option value="$PROJECT_DIR$/Modules" />

@@ -1,6 +1,7 @@
 package cn.microboat.controller;
 
 import cn.microboat.core.Return;
+import cn.microboat.core.pojo.dto.LoginUser;
 import cn.microboat.core.pojo.dto.UserDto;
 import cn.microboat.core.pojo.vo.UserVo;
 import cn.microboat.service.LoginService;
@@ -36,7 +37,7 @@ public class LoginController {
 
     @ApiOperation(value = "login", notes = "登陆")
     @PostMapping("/login")
-    public Return<UserVo> login(@ApiParam @RequestBody UserDto userDto) {
+    public Return<LoginUser> login(@ApiParam @RequestBody UserDto userDto) {
         return loginService.login(userDto);
     }
 

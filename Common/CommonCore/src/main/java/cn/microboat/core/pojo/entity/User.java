@@ -1,26 +1,20 @@
-package cn.microboat.entity;
-
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableName;
+package cn.microboat.core.pojo.entity;
 
 import java.time.LocalDateTime;
 
 /**
  * @author zhouwei
  */
-@TableName("user")
 public class User extends BasicEntity {
 
     /**
      * 用户名
      */
-    @TableField
     private String username;
 
     /**
      * 密码
      */
-    @TableField
     private String password;
 
     /**
@@ -28,30 +22,32 @@ public class User extends BasicEntity {
      * 0 女<br/>
      * 1 男
      */
-    @TableField
     private Integer gender;
 
     /**
      * 出生日期
      */
-    @TableField
     private LocalDateTime birthday;
 
     /**
      * 手机号码
      */
-    @TableField
     private String phoneNumber;
 
     /**
      * 电子邮箱
      */
-    @TableField
     private String email;
 
     public User() {
     }
 
+    /**
+     * 创建包含用户名和密码的 User 对象
+     *
+     * @param username 用户名
+     * @param password 密码
+     */
     public User(String username, String password) {
         this.username = username;
         this.password = password;

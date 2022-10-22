@@ -3,29 +3,32 @@ package cn.microboat.service.impl;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.microboat.core.Return;
+import cn.microboat.core.mapper.User2DtoMapper;
+import cn.microboat.core.mapper.User2VoMapper;
+import cn.microboat.core.pojo.dto.LoginUser;
 import cn.microboat.core.pojo.dto.UserDto;
+import cn.microboat.core.pojo.entity.User;
 import cn.microboat.core.pojo.vo.UserVo;
 import cn.microboat.core.utils.CryptoUtils;
 import cn.microboat.dao.UserRepository;
-import cn.microboat.entity.User;
-import cn.microboat.mapper.User2DtoMapper;
-import cn.microboat.mapper.User2VoMapper;
 import cn.microboat.service.LoginService;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author zhouwei
  */
 @Service
-public class LoginServiceImpl extends ServiceImpl<UserRepository, User> implements LoginService {
+public class LoginServiceImpl implements LoginService {
 
     private final UserRepository userRepository;
     private final User2VoMapper user2VoMapper;
     private final User2DtoMapper user2DtoMapper;
 
+    @SuppressWarnings("all")
     @Autowired
     LoginServiceImpl(UserRepository userRepository, User2VoMapper user2VoMapper, User2DtoMapper user2DtoMapper) {
         this.userRepository = userRepository;
@@ -40,7 +43,23 @@ public class LoginServiceImpl extends ServiceImpl<UserRepository, User> implemen
      * @return User
      */
     private User getUserByUsername(String username) {
-        return userRepository.selectOne(new QueryWrapper<User>().eq("username", username));
+        User user = new User();
+        user.setUsername(username);
+        List<User> users = userRepository.selectUserList(user);
+        return users.stream().limit(1L).collect(Collectors.toList()).get(0);
+    }
+
+    /**
+     * 判断用户名在 user 表中是不是存在
+     *
+     * @param username 用户名
+     * @return 是否存在
+     */
+    private boolean checkExists(String username) {
+        User user = new User();
+        user.setUsername(username);
+        List<User> users = userRepository.selectUserList(user);
+        return !ObjectUtil.isEmpty(users);
     }
 
 
@@ -58,8 +77,7 @@ public class LoginServiceImpl extends ServiceImpl<UserRepository, User> implemen
         }
 
         // 数据库里已经有了这个 username 的用户
-        User userByUsername = getUserByUsername(userDto.getUsername());
-        if (ObjectUtil.isNotEmpty(userByUsername)) {
+        if (checkExists(userDto.getUsername())) {
             return Return.fail("username is already exists");
         }
 
@@ -71,7 +89,7 @@ public class LoginServiceImpl extends ServiceImpl<UserRepository, User> implemen
         User user = user2DtoMapper.modelToEntity(userDto);
         // 密码 AES 加密
         user.setPassword(CryptoUtils.AES.encryptHex(user.getPassword()));
-        this.save(user);
+        userRepository.insertUser(user);
         return Return.succeed(user2VoMapper.entityToModel(user));
     }
 
@@ -82,7 +100,7 @@ public class LoginServiceImpl extends ServiceImpl<UserRepository, User> implemen
      * @return Return<UserVo>
      */
     @Override
-    public Return<UserVo> login(UserDto userDto) {
+    public Return<LoginUser> login(UserDto userDto) {
         // username 为空
         if (StrUtil.isBlankIfStr(userDto.getUsername())) {
             return Return.fail("username is blank");
@@ -102,7 +120,9 @@ public class LoginServiceImpl extends ServiceImpl<UserRepository, User> implemen
 
         // 密码正确
         if (user.getPassword().equals(CryptoUtils.AES.encryptHex(userDto.getPassword()))) {
-            return Return.succeed(user2VoMapper.entityToModel(user));
+            LoginUser loginUser = new LoginUser();
+            loginUser.setUser(user);
+            return Return.succeed(loginUser);
         }
 
         // 密码不正确
@@ -132,7 +152,7 @@ public class LoginServiceImpl extends ServiceImpl<UserRepository, User> implemen
         // 修改密码
         user.setPassword(CryptoUtils.AES.encryptHex(userDto.getPassword()));
 
-        this.saveOrUpdate(user);
+        this.userRepository.updateUser(user);
         return Return.succeed(user2VoMapper.entityToModel(user));
     }
 }

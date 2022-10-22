@@ -1,9 +1,10 @@
 package cn.microboat.controller;
 
 import cn.microboat.core.Return;
+import cn.microboat.core.pojo.dto.LoginUser;
 import cn.microboat.core.pojo.dto.UserDto;
+import cn.microboat.core.pojo.entity.Task;
 import cn.microboat.core.pojo.vo.UserVo;
-import cn.microboat.domain.Task;
 import cn.microboat.service.RemoteLoginService;
 import cn.microboat.service.RemoteUserService;
 import cn.microboat.service.TaskService;
@@ -48,7 +49,7 @@ public class TaskController {
 
     @GetMapping("/openfeign2")
     @ApiOperation(value = "测试openfeign2", notes = "测试openfeign2", httpMethod = "GET")
-    public Return<UserVo> testOpenfeign2() {
+    public Return<LoginUser> testOpenfeign2() {
         UserDto userDto = new UserDto();
         userDto.setUsername("admin");
         userDto.setPassword("admin");

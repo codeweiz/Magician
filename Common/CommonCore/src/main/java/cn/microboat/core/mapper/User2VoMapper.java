@@ -1,8 +1,8 @@
-package cn.microboat.mapper;
+package cn.microboat.core.mapper;
 
 import cn.microboat.core.BasicMapper;
-import cn.microboat.mapper.converter.UserMapperConverter;
-import cn.microboat.entity.User;
+import cn.microboat.core.mapper.converter.UserMapperConverter;
+import cn.microboat.core.pojo.entity.User;
 import cn.microboat.core.pojo.vo.UserVo;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;

@@ -68,8 +68,10 @@ project(':Common:CommonCore') {
         api 'cn.hutool:hutool-all'
         // guava 工具类
         api 'com.google.guava:guava'
-        // jjwt jsonwebtoken
+        // jjwt jsonwebtoken api impl gson
         api 'io.jsonwebtoken:jjwt-api'
+        api 'io.jsonwebtoken:jjwt-impl'
+        api 'io.jsonwebtoken:jjwt-gson'
         // gson
         api 'com.google.code.gson:gson'
         // lombok 插件
@@ -82,6 +84,10 @@ project(':Common:CommonCore') {
         api 'com.github.xiaoymin:knife4j-spring-boot-starter'
         // fastjson
         api 'com.alibaba.fastjson2:fastjson2'
+        // mapstruct 映射工具
+        api 'org.mapstruct:mapstruct'
+        // mapstruct annotationProcessor
+        annotationProcessor 'org.mapstruct:mapstruct-processor'
     }
 }
 
@@ -90,8 +96,8 @@ project(':Common:CommonDatasource') {
     dependencies {
         // 引入公共模块 CommonCore
         implementation project(':Common:CommonCore')
-        // mybatis-plus 数据库操作
-        api 'com.baomidou:mybatis-plus-boot-starter'
+        // mybatis
+        api 'org.mybatis.spring.boot:mybatis-spring-boot-starter'
         // druid
         api 'com.alibaba:druid-spring-boot-starter'
         // mysql
@@ -116,6 +122,18 @@ project(':Common:CommonWeb') {
         implementation project(':Common:CommonCore')
         // web
         api 'org.springframework.boot:spring-boot-starter-web'
+    }
+}
+
+// 给子模块 Common 的 CommonSecurity 配置依赖
+project(':Common:CommonSecurity') {
+    dependencies {
+        // 引入公共模块 CommonCore
+        implementation project(':Common:CommonCore')
+        // 引入公共模块 CommonRedis
+        implementation project(':Common:CommonRedis')
+        // 引入公共模块 CommonWeb
+        implementation project(':Common:CommonWeb')
     }
 }
 
@@ -172,6 +190,8 @@ project(':Modules') {
 
 // 给子模块 Modules 的子模块 SystemService 配置依赖
 project(':Modules:SystemService') {
+    // 解决 mapper 的 xml 文件无法打包的问题
+    sourceSets.main.resources.srcDirs = ["src/main/java", "src/main/resources"]
     dependencies {
         // 引入公共模块 CommonDatasource，要在 yml 中添加 mysql 的配置
         implementation project(':Common:CommonDatasource')
@@ -179,27 +199,23 @@ project(':Modules:SystemService') {
         implementation project(':Common:CommonRedis')
         // 引入公共模块 CommonWeb
         implementation project(':Common:CommonWeb')
-        // mapstruct 映射工具
-        api 'org.mapstruct:mapstruct'
-        // mapstruct annotationProcessor
-        annotationProcessor 'org.mapstruct:mapstruct-processor'
     }
 }
 
 // 给子模块 Modules 的子模块 TaskService 配置依赖
 project(':Modules:TaskService') {
     // 解决 mapper 的 xml 文件无法打包的问题
-    sourceSets.main.resources.srcDirs = ["src/main/java","src/main/resources"]
+    sourceSets.main.resources.srcDirs = ["src/main/java", "src/main/resources"]
     dependencies {
-        // mybatis
-        implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter'
-        // druid
-        implementation 'com.alibaba:druid-spring-boot-starter'
-        // mysql
-        implementation 'mysql:mysql-connector-java'
+        // 引入公共模块 CommonDatasource，要在 yml 中添加 mysql 的配置
+        implementation project(':Common:CommonDatasource')
     }
 }
 
 // 给子模块 Modules 的子模块 AuthService 配置依赖
 project(':Modules:AuthService') {
+    dependencies {
+        // 引入公共模块 CommonSecurity，要在 yml 中添加 redis 的配置
+        implementation project(':Common:CommonSecurity')
+    }
 }

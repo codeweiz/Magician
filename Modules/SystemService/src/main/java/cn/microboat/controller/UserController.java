@@ -7,10 +7,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,15 +26,21 @@ public class UserController {
         this.userService = userService;
     }
 
-    @ApiOperation(value = "userInfo", notes = "获取用户信息")
+    @ApiOperation(value = "userInfo", notes = "获取用户信息", httpMethod = "GET")
     @GetMapping("/userInfo/{username}")
     public Return<UserVo> userInfo(@ApiParam @PathVariable(value = "username") String username) {
         return userService.getByUsername(username);
     }
 
-    @ApiOperation(value = "list", notes = "获取所有用户信息")
+    @ApiOperation(value = "list", notes = "获取所有用户信息", httpMethod = "GET")
     @GetMapping("/list")
     public Return<List<UserVo>> list() {
         return userService.userList();
+    }
+
+    @ApiOperation(value = "deleteUsersByIds", notes = "根据id列表删除用户列表", httpMethod = "DELETE")
+    @DeleteMapping
+    public Return<?> deleteUsersByIds(@RequestBody List<Integer> ids) {
+        return userService.batchDelete(ids);
     }
 }

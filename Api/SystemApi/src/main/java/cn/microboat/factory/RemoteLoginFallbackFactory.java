@@ -1,6 +1,7 @@
 package cn.microboat.factory;
 
 import cn.microboat.core.Return;
+import cn.microboat.core.pojo.dto.LoginUser;
 import cn.microboat.core.pojo.dto.UserDto;
 import cn.microboat.core.pojo.vo.UserVo;
 import cn.microboat.service.RemoteLoginService;
@@ -44,7 +45,7 @@ public class RemoteLoginFallbackFactory implements FallbackFactory<RemoteLoginSe
              * @return Return<UserVo>
              */
             @Override
-            public Return<UserVo> login(UserDto userDto) {
+            public Return<LoginUser> login(UserDto userDto) {
                 return Return.fail("调用 System 服务下的 login 接口失败：" + cause.getMessage());
             }
 

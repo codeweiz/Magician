@@ -1,17 +1,18 @@
-package cn.microboat.model;
+package cn.microboat.core.pojo.dto;
 
-import cn.microboat.entity.User;
+import cn.microboat.core.pojo.entity.User;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Set;
 
 /**
- * 用户信息
+ * 用户登陆对象
  *
  * @author zhouwei
  */
 public class LoginUser implements Serializable {
+
     public static final long serialVersionUID = 1L;
 
     /**

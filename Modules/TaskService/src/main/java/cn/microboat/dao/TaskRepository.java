@@ -1,13 +1,13 @@
-package cn.microboat.mapper;
+package cn.microboat.dao;
 
-import cn.microboat.domain.Task;
+import cn.microboat.core.pojo.entity.Task;
 
 import java.util.List;
 
 /**
  * @author zhouwei
  */
-public interface TaskMapper {
+public interface TaskRepository {
 
     /**
      * 查询任务信息

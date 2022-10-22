@@ -4,15 +4,13 @@ import cn.microboat.core.Page;
 import cn.microboat.core.Return;
 import cn.microboat.core.pojo.dto.UserDto;
 import cn.microboat.core.pojo.vo.UserVo;
-import cn.microboat.entity.User;
-import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
 
 /**
  * @author zhouwei
  */
-public interface UserService extends IService<User> {
+public interface UserService {
 
     /**
      * 添加一个用户
@@ -98,7 +96,7 @@ public interface UserService extends IService<User> {
      * 根据条件分页查询所有用户信息
      *
      * @param userDto 用户传递的参数
-     * @param page 分页
+     * @param page    分页
      * @return Return<UserVo>
      */
     Return<List<UserVo>> pageByConditions(UserDto userDto, Page page);

@@ -1,15 +1,14 @@
 package cn.microboat.service;
 
 import cn.microboat.core.Return;
+import cn.microboat.core.pojo.dto.LoginUser;
 import cn.microboat.core.pojo.dto.UserDto;
 import cn.microboat.core.pojo.vo.UserVo;
-import cn.microboat.entity.User;
-import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * @author zhouwei
  */
-public interface LoginService extends IService<User> {
+public interface LoginService {
 
     /**
      * 注册
@@ -25,7 +24,7 @@ public interface LoginService extends IService<User> {
      * @param userDto userDto
      * @return Return<UserVo>
      */
-    Return<UserVo> login(UserDto userDto);
+    Return<LoginUser> login(UserDto userDto);
 
     /**
      * 重设密码

@@ -5,16 +5,15 @@ import cn.hutool.core.util.StrUtil;
 import cn.microboat.core.Page;
 import cn.microboat.core.Return;
 import cn.microboat.core.pojo.dto.UserDto;
+import cn.microboat.core.pojo.entity.User;
 import cn.microboat.core.pojo.vo.UserVo;
 import cn.microboat.dao.UserRepository;
-import cn.microboat.entity.User;
-import cn.microboat.mapper.User2DtoMapper;
-import cn.microboat.mapper.User2VoMapper;
+import cn.microboat.core.mapper.User2DtoMapper;
+import cn.microboat.core.mapper.User2VoMapper;
 import cn.microboat.service.UserService;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,12 +22,13 @@ import java.util.stream.Collectors;
  * @author zhouwei
  */
 @Service
-public class UserServiceImpl extends ServiceImpl<UserRepository, User> implements UserService {
+public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final User2VoMapper user2VoMapper;
     private final User2DtoMapper user2DtoMapper;
 
+    @SuppressWarnings("all")
     @Autowired
     UserServiceImpl(UserRepository userRepository, User2VoMapper user2VoMapper, User2DtoMapper user2DtoMapper) {
         this.userRepository = userRepository;
@@ -43,7 +43,7 @@ public class UserServiceImpl extends ServiceImpl<UserRepository, User> implement
      * @return User
      */
     private User getUserById(Integer id) {
-        return userRepository.selectOne(new QueryWrapper<User>().eq("id", id).eq("delete_flag", 0));
+        return userRepository.selectUserById(id);
     }
 
     /**
@@ -53,7 +53,9 @@ public class UserServiceImpl extends ServiceImpl<UserRepository, User> implement
      * @return User
      */
     private User getUserByUsername(String username) {
-        return userRepository.selectOne(new QueryWrapper<User>().eq("username", username).eq("delete_flag", 0));
+        User user = new User();
+        user.setUsername(username);
+        return userRepository.selectUserList(user).stream().limit(1L).collect(Collectors.toList()).get(0);
     }
 
     /**
@@ -62,13 +64,14 @@ public class UserServiceImpl extends ServiceImpl<UserRepository, User> implement
      * @param userDto 用户传递的参数
      * @return Return<UserVo>
      */
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public Return<UserVo> add(UserDto userDto) {
         if (ObjectUtil.isEmpty(userDto)) {
             return Return.fail("userDto is empty");
         }
         User user = user2DtoMapper.modelToEntity(userDto);
-        userRepository.insert(user);
+        userRepository.insertUser(user);
         return Return.succeed(user2VoMapper.entityToModel(user));
     }
 
@@ -79,14 +82,13 @@ public class UserServiceImpl extends ServiceImpl<UserRepository, User> implement
      * @return Return<List < UserVo>>
      */
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public Return<List<UserVo>> batchAdd(List<UserDto> userDtoList) {
         if (ObjectUtil.isEmpty(userDtoList)) {
             return Return.fail("userDtoList is empty");
         }
-        if (this.saveBatch(user2DtoMapper.modelsToEntities(userDtoList))) {
-            return Return.succeed(user2VoMapper.entitiesToModels(user2DtoMapper.modelsToEntities(userDtoList)));
-        }
-        return Return.fail("fail to saveBatch userDtoList");
+        user2DtoMapper.modelsToEntities(userDtoList).forEach(userRepository::insertUser);
+        return Return.succeed();
     }
 
     /**
@@ -96,10 +98,11 @@ public class UserServiceImpl extends ServiceImpl<UserRepository, User> implement
      * @return Return<UserVo>
      */
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public Return<UserVo> delete(Integer id) {
-        // 如果 id 为空或空串，快速返回失败
-        if (StrUtil.isBlankIfStr(id)) {
-            return Return.fail("id is blank");
+        // 如果 id 为空，快速返回失败
+        if (ObjectUtil.isEmpty(id)) {
+            return Return.fail("id is empty");
         }
 
         User selectOne = this.getUserById(id);
@@ -110,8 +113,7 @@ public class UserServiceImpl extends ServiceImpl<UserRepository, User> implement
         }
 
         // 如果 id 对应的用户存在，就把 deleteFlag 置为 1，表示逻辑删除
-        selectOne.setDeleteFlag(1);
-        userRepository.insert(selectOne);
+        userRepository.deleteUserById(id);
         return Return.succeed(user2VoMapper.entityToModel(selectOne));
     }
 
@@ -122,18 +124,16 @@ public class UserServiceImpl extends ServiceImpl<UserRepository, User> implement
      * @return Return<List < UserVo>>
      */
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public Return<List<UserVo>> batchDelete(List<Integer> ids) {
-        // 如果 ids 中有空串
-        if (StrUtil.hasBlank((CharSequence) ids)) {
+        // 如果 ids 为空，快速返回失败
+        if (ObjectUtil.isEmpty(ids)) {
             return Return.fail("ids has blank");
         }
 
-        List<User> userList = userRepository.selectBatchIds(ids);
-
-        // 如果 ids 对应的用户存在，就把 deleteFlag 置为 1，表示逻辑删除
-        userList.forEach(user -> user.setDeleteFlag(1));
-        this.saveBatch(userList);
-        return Return.succeed(user2VoMapper.entitiesToModels(userList));
+        // 如果 ids 对应的用户列表存在，就把 deleteFlag 置为 1，表示逻辑删除
+        userRepository.deleteUsersByIds(ids);
+        return Return.succeed();
     }
 
     /**
@@ -143,6 +143,7 @@ public class UserServiceImpl extends ServiceImpl<UserRepository, User> implement
      * @return Return<UserVo>
      */
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public Return<UserVo> update(UserDto userDto) {
         // 如果 userDto 为空，快速返回失败
         if (ObjectUtil.isEmpty(userDto)) {
@@ -157,7 +158,8 @@ public class UserServiceImpl extends ServiceImpl<UserRepository, User> implement
         }
 
         // 如果 id 对应的用户存在，就动态地更新属性
-        return Return.succeed(user2VoMapper.entityToModel(user));
+        userRepository.updateUser(user);
+        return Return.succeed();
     }
 
     /**
@@ -167,17 +169,16 @@ public class UserServiceImpl extends ServiceImpl<UserRepository, User> implement
      * @return Return<List < UserVo>>
      */
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public Return<List<UserVo>> batchUpdate(List<UserDto> userDtoList) {
         // 如果 userList 为空
         if (ObjectUtil.isEmpty(userDtoList)) {
             return Return.fail("userDtoList is empty");
         }
 
-        List<Integer> ids = userDtoList.stream().map(UserDto::getId).collect(Collectors.toList());
-        List<User> userList = userRepository.selectBatchIds(ids);
-
         // 如果 ids 对应的用户存在，就动态地更新属性
-        return Return.succeed(user2VoMapper.entitiesToModels(userList));
+        user2DtoMapper.modelsToEntities(userDtoList).forEach(userRepository::updateUser);
+        return Return.succeed();
     }
 
     /**
@@ -208,7 +209,7 @@ public class UserServiceImpl extends ServiceImpl<UserRepository, User> implement
      */
     @Override
     public Return<List<UserVo>> userList() {
-        return Return.succeed(user2VoMapper.entitiesToModels(userRepository.selectList(null)));
+        return Return.succeed(user2VoMapper.entitiesToModels(userRepository.selectUserList(null)));
     }
 
     /**
@@ -230,7 +231,11 @@ public class UserServiceImpl extends ServiceImpl<UserRepository, User> implement
      */
     @Override
     public Return<List<UserVo>> listByConditions(UserDto userDto) {
-        return null;
+        // 如果 userDto 为空，快速返回失败
+        if (ObjectUtil.isEmpty(userDto)) {
+            return Return.fail("userDto is empty");
+        }
+        return Return.succeed(user2VoMapper.entitiesToModels(userRepository.selectUserList(user2DtoMapper.modelToEntity(userDto))));
     }
 
     /**

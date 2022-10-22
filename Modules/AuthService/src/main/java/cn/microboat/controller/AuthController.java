@@ -1,8 +1,14 @@
 package cn.microboat.controller;
 
+import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.core.util.StrUtil;
 import cn.microboat.core.Return;
+import cn.microboat.core.constant.SecurityConstants;
 import cn.microboat.core.pojo.dto.LoginBody;
+import cn.microboat.core.pojo.dto.LoginUser;
 import cn.microboat.core.pojo.dto.RegisterBody;
+import cn.microboat.core.utils.JwtUtils;
+import cn.microboat.security.utils.TokenUtils;
 import cn.microboat.service.AuthService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -23,10 +29,11 @@ import javax.servlet.http.HttpServletRequest;
 public class AuthController {
 
     private final AuthService authService;
-//    private final TokenService tokenService;
+    private final TokenUtils tokenUtils;
 
-    AuthController(AuthService authService) {
+    AuthController(AuthService authService, TokenUtils tokenUtils) {
         this.authService = authService;
+        this.tokenUtils = tokenUtils;
     }
 
     /**
@@ -38,7 +45,7 @@ public class AuthController {
     @ApiOperation(value = "register", notes = "register", httpMethod = "POST")
     @PostMapping("/register")
     public Return<?> register(@ApiParam @RequestBody RegisterBody registerBody) {
-        return authService.register(registerBody);
+        return authService.register(registerBody.getUsername(), registerBody.getPassword());
     }
 
     /**
@@ -50,7 +57,11 @@ public class AuthController {
     @ApiOperation(value = "login", notes = "login", httpMethod = "POST")
     @PostMapping("/login")
     public Return<?> login(@ApiParam @RequestBody LoginBody loginBody) {
-        return authService.login(loginBody);
+        LoginUser loginUser = authService.login(loginBody.getUsername(), loginBody.getPassword());
+        if (ObjectUtil.isEmpty(loginUser)) {
+            return Return.fail("loginUser is null");
+        }
+        return Return.succeed(tokenUtils.createToken(loginUser));
     }
 
     /**
@@ -62,7 +73,12 @@ public class AuthController {
     @ApiOperation(value = "logout", notes = "logout", httpMethod = "POST")
     @PostMapping("/logout")
     public Return<?> logout(HttpServletRequest request) {
-        return authService.logout(request);
+        String token = request.getHeader(SecurityConstants.AUTHORIZATION_HEADER);
+        if (StrUtil.isNotBlank(token)) {
+            String userName = JwtUtils.getUserName(token);
+            authService.logout(userName);
+        }
+        return Return.succeed();
     }
 
     /**
@@ -74,18 +90,10 @@ public class AuthController {
     @ApiOperation(value = "refresh", notes = "refresh", httpMethod = "POST")
     @PostMapping("/refresh")
     public Return<?> refresh(HttpServletRequest request) {
-        return authService.refresh(request);
-    }
-
-    /**
-     * 重设密码
-     *
-     * @param loginBody LoginBody
-     * @return Return
-     */
-    @ApiOperation(value = "resetPassword", notes = "resetPassword", httpMethod = "POST")
-    @PostMapping("/resetPassword")
-    public Return<?> resetPassword(@ApiParam @RequestBody LoginBody loginBody) {
-        return authService.resetPassword(loginBody);
+        LoginUser loginUser = tokenUtils.getLoginUser(request);
+        if (ObjectUtil.isNotNull(loginUser)) {
+            tokenUtils.refreshToken(loginUser);
+        }
+        return Return.succeed();
     }
 }

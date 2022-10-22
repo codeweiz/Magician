@@ -1,7 +1,7 @@
 package cn.microboat.service.impl;
 
-import cn.microboat.domain.Task;
-import cn.microboat.mapper.TaskMapper;
+import cn.microboat.core.pojo.entity.Task;
+import cn.microboat.dao.TaskRepository;
 import cn.microboat.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,11 +16,12 @@ import java.util.List;
 @Service
 public class TaskServiceImpl implements TaskService {
 
-    private final TaskMapper taskMapper;
+    private final TaskRepository taskRepository;
 
+    @SuppressWarnings("all")
     @Autowired
-    TaskServiceImpl(TaskMapper taskMapper) {
-        this.taskMapper = taskMapper;
+    TaskServiceImpl(TaskRepository taskRepository) {
+        this.taskRepository = taskRepository;
     }
 
     /**
@@ -31,7 +32,7 @@ public class TaskServiceImpl implements TaskService {
      */
     @Override
     public Task selectTaskById(Integer id) {
-        return taskMapper.selectTaskById(id);
+        return taskRepository.selectTaskById(id);
     }
 
     /**
@@ -42,7 +43,7 @@ public class TaskServiceImpl implements TaskService {
      */
     @Override
     public List<Task> selectTaskList(Task task) {
-        return taskMapper.selectTaskList(task);
+        return taskRepository.selectTaskList(task);
     }
 
     /**
@@ -53,7 +54,7 @@ public class TaskServiceImpl implements TaskService {
      */
     @Override
     public int insertTask(Task task) {
-        return taskMapper.insertTask(task);
+        return taskRepository.insertTask(task);
     }
 
     /**
@@ -64,7 +65,7 @@ public class TaskServiceImpl implements TaskService {
      */
     @Override
     public int updateTask(Task task) {
-        return taskMapper.updateTask(task);
+        return taskRepository.updateTask(task);
     }
 
     /**
@@ -75,7 +76,7 @@ public class TaskServiceImpl implements TaskService {
      */
     @Override
     public int deleteTaskById(Integer id) {
-        return taskMapper.deleteTaskById(id);
+        return taskRepository.deleteTaskById(id);
     }
 
     /**
@@ -86,6 +87,6 @@ public class TaskServiceImpl implements TaskService {
      */
     @Override
     public int deleteTaskByIds(Integer[] ids) {
-        return taskMapper.deleteTaskByIds(ids);
+        return taskRepository.deleteTaskByIds(ids);
     }
 }

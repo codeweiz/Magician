@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.microboat.mapper.TaskMapper">
+<mapper namespace="cn.microboat.dao.TaskRepository">
 
     <!--  结果集  -->
-    <resultMap id="TaskResult" type="cn.microboat.domain.Task">
+    <resultMap id="TaskResult" type="cn.microboat.core.pojo.entity.Task">
         <id property="id" column="id"/>
         <result property="taskName" column="task_name"/>
         <result property="taskType" column="task_type"/>
@@ -30,8 +30,7 @@
                create_by,
                create_at,
                update_by,
-               update_at,
-               delete_flag
+               update_at
         from task
     </sql>
 
@@ -39,68 +38,66 @@
     <select id="selectTaskById" parameterType="integer" resultMap="TaskResult">
         <include refid="selectTaskVo"/>
         <where>
-            <if test="id != null and id != ''">
-                id = #{id}
+            delete_flag = 0
+            <if test="id != null">
+                and id = #{id}
             </if>
         </where>
     </select>
 
     <!--  查询任务信息列表  -->
-    <select id="selectTaskList" parameterType="cn.microboat.domain.Task" resultMap="TaskResult">
+    <select id="selectTaskList" parameterType="cn.microboat.core.pojo.entity.Task" resultMap="TaskResult">
         <include refid="selectTaskVo"/>
         <where>
+            delete_flag = 0
             <if test="taskName != null and taskName != ''">
                 and task_name like concat('%', #{taskName}, '%')
             </if>
-            <if test="taskType != null and taskType != ''">
+            <if test="taskType != null">
                 and task_type = #{taskType}
             </if>
-            <if test="startTime != null and startTime != ''">
+            <if test="startTime != null">
                 and date_format(start_time, '%y%m%d') >= date_format(#{startTime}, '%y%m%d')
             </if>
-            <if test="endTime != null and endTime != ''">
+            <if test="endTime != null">
                 and date_format(end_time, '%y%m%d') >= date_format(#{endTime}, '%y%m%d')
             </if>
         </where>
     </select>
 
     <!--  新增任务信息  -->
-    <insert id="insertTask" parameterType="cn.microboat.domain.Task">
+    <insert id="insertTask" parameterType="cn.microboat.core.pojo.entity.Task">
         insert into task (
         <if test="id != null and id != ''">id,</if>
         <if test="taskName != null and taskName != ''">task_name,</if>
-        <if test="taskType != null and taskType != ''">task_type,</if>
-        <if test="startTime != null and startTime != ''">start_time,</if>
-        <if test="endTime != null and endTime != ''">end_time,</if>
+        <if test="taskType != null">task_type,</if>
+        <if test="startTime != null">start_time,</if>
+        <if test="endTime != null">end_time,</if>
         <if test="location != null and location != ''">location,</if>
         <if test="createBy != null and createBy != ''">create_by,</if>
-        <if test="updateAt != null and updateAt != ''">update_at,</if>
-        <if test="updateBy != null and updateBy != ''">update_by,</if>
-        <if test="deleteFlag != null and deleteFlag != ''">delete_flag,</if>
+        delete_flag,
         create_at
         ) values (
         <if test="id != null and id != ''">#{id},</if>
         <if test="taskName != null and taskName != ''">#{taskName},</if>
-        <if test="taskType != null and taskType != ''">#{taskType},</if>
-        <if test="startTime != null and startTime != ''">#{startTime},</if>
-        <if test="endTime != null and endTime != ''">#{endTime},</if>
+        <if test="taskType != null">#{taskType},</if>
+        <if test="startTime != null">#{startTime},</if>
+        <if test="endTime != null">#{endTime},</if>
         <if test="location != null and location != ''">#{location},</if>
         <if test="createBy != null and createBy != ''">#{createBy},</if>
-        <if test="updateAt != null and updateAt != ''">#{updateAt},</if>
-        <if test="updateBy != null and updateBy != ''">#{updateBy},</if>
-        <if test="deleteFlag != null and deleteFlag != ''">#{deleteFlag},</if>
+        0,
         sysdate()
         )
     </insert>
 
     <!--  修改任务信息  -->
-    <update id="updateTask" parameterType="cn.microboat.domain.Task">
+    <update id="updateTask" parameterType="cn.microboat.core.pojo.entity.Task">
         update task
         <set>
             <if test="taskName != null and taskName != ''">task_name = #{taskName},</if>
-            <if test="taskType != null and taskType != ''">task_type = #{taskType},</if>
-            <if test="startTime != null and startTime != ''">start_time = #{startTime},</if>
-            <if test="endTime != null and endTime != ''">end_time = #{endTime},</if>
+            <if test="taskType != null">task_type = #{taskType},</if>
+            <if test="startTime != null">start_time = #{startTime},</if>
+            <if test="endTime != null">end_time = #{endTime},</if>
             <if test="location != null and location != ''">location = #{location},</if>
             <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
             update_at = sysdate()

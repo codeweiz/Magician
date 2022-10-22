@@ -1,6 +1,6 @@
 package cn.microboat.service;
 
-import cn.microboat.domain.Task;
+import cn.microboat.core.pojo.entity.Task;
 
 import java.util.List;
 

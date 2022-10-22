@@ -1,6 +1,7 @@
 package cn.microboat.service;
 
 import cn.microboat.core.Return;
+import cn.microboat.core.pojo.dto.LoginUser;
 import cn.microboat.core.pojo.dto.UserDto;
 import cn.microboat.core.pojo.vo.UserVo;
 import cn.microboat.factory.RemoteLoginFallbackFactory;
@@ -31,7 +32,7 @@ public interface RemoteLoginService {
      * @return Return<UserVo>
      */
     @PostMapping("/login/login")
-    Return<UserVo> login(@ApiParam @RequestBody UserDto userDto);
+    Return<LoginUser> login(@ApiParam @RequestBody UserDto userDto);
 
     /**
      * 重设密码

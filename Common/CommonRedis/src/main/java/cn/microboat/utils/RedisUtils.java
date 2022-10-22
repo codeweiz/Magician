@@ -1,4 +1,4 @@
-package cn.microboat.service;
+package cn.microboat.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.BoundSetOperations;
@@ -18,12 +18,12 @@ import java.util.concurrent.TimeUnit;
  */
 @SuppressWarnings(value = {"unchecked", "rawtypes"})
 @Component
-public class RedisService {
+public class RedisUtils {
 
     private final RedisTemplate redisTemplate;
 
     @Autowired
-    RedisService(RedisTemplate redisTemplate) {
+    RedisUtils(RedisTemplate redisTemplate) {
         this.redisTemplate = redisTemplate;
     }
 

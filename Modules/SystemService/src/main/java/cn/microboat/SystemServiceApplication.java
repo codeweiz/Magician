@@ -12,7 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-@MapperScan("cn.microboat.dao")
+@MapperScan("cn.microboat.**.dao")
 public class SystemServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(SystemServiceApplication.class, args);

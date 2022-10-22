@@ -1,4 +1,6 @@
-package cn.microboat.domain;
+package cn.microboat.core.pojo.entity;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDateTime;
 
@@ -15,13 +17,16 @@ public class BasicEntity {
     private Integer id;
 
     /**
-     * 逻辑删除标识
+     * 逻辑删除标识<br/>
+     * 0 未删除<br/>
+     * 1 已删除
      */
-    private Integer deleteFlag;
+    private Integer deleteFlag = 0;
 
     /**
      * 创建时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createAt;
 
     /**
@@ -32,6 +37,7 @@ public class BasicEntity {
     /**
      * 更新时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updateAt;
 
     /**
