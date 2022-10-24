@@ -8,8 +8,8 @@ import cn.microboat.core.constant.SecurityConstants;
 import cn.microboat.core.constant.TokenConstants;
 import cn.microboat.core.pojo.dto.LoginUser;
 import cn.microboat.core.utils.JwtUtils;
-import cn.microboat.utils.RedisUtils;
 import cn.microboat.utils.IpUtils;
+import cn.microboat.utils.RedisUtils;
 import cn.microboat.utils.ServletUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -114,7 +114,7 @@ public class TokenUtils {
     }
 
     /**
-     * 从令牌中获取登陆用户信息
+     * 从缓存中获取登陆用户信息
      *
      * @param token 令牌
      * @return 登陆用户信息
@@ -173,7 +173,22 @@ public class TokenUtils {
     }
 
     /**
-     * token 加前缀
+     * 检查 token 是否有效，缓存中是否有该令牌
+     *
+     * @param token 令牌
+     * @return 是否有效
+     */
+    public boolean checkTokenExists(String token) {
+        if (StrUtil.isBlankIfStr(token)) {
+            return false;
+        }
+        String userKey = JwtUtils.getUserKey(token);
+        Object cacheObject = redisUtils.getCacheObject(getTokenKey(userKey));
+        return ObjectUtil.isNotEmpty(cacheObject);
+    }
+
+    /**
+     * token 加前缀，为了缓存中分组
      *
      * @param userKey 令牌
      * @return TokenKey

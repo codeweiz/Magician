@@ -217,5 +217,7 @@ project(':Modules:AuthService') {
     dependencies {
         // 引入公共模块 CommonSecurity，要在 yml 中添加 redis 的配置
         implementation project(':Common:CommonSecurity')
+        // 引入公共模块 CommonWeb
+        implementation project(':Common:CommonWeb')
     }
 }

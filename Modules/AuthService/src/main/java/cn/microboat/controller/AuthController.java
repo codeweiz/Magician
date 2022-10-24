@@ -1,14 +1,8 @@
 package cn.microboat.controller;
 
-import cn.hutool.core.util.ObjectUtil;
-import cn.hutool.core.util.StrUtil;
 import cn.microboat.core.Return;
-import cn.microboat.core.constant.SecurityConstants;
 import cn.microboat.core.pojo.dto.LoginBody;
-import cn.microboat.core.pojo.dto.LoginUser;
 import cn.microboat.core.pojo.dto.RegisterBody;
-import cn.microboat.core.utils.JwtUtils;
-import cn.microboat.security.utils.TokenUtils;
 import cn.microboat.service.AuthService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -17,8 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author zhouwei
@@ -29,11 +21,9 @@ import javax.servlet.http.HttpServletRequest;
 public class AuthController {
 
     private final AuthService authService;
-    private final TokenUtils tokenUtils;
 
-    AuthController(AuthService authService, TokenUtils tokenUtils) {
+    AuthController(AuthService authService) {
         this.authService = authService;
-        this.tokenUtils = tokenUtils;
     }
 
     /**
@@ -57,43 +47,34 @@ public class AuthController {
     @ApiOperation(value = "login", notes = "login", httpMethod = "POST")
     @PostMapping("/login")
     public Return<?> login(@ApiParam @RequestBody LoginBody loginBody) {
-        LoginUser loginUser = authService.login(loginBody.getUsername(), loginBody.getPassword());
-        if (ObjectUtil.isEmpty(loginUser)) {
-            return Return.fail("loginUser is null");
-        }
-        return Return.succeed(tokenUtils.createToken(loginUser));
+        return authService.login(loginBody.getUsername(), loginBody.getPassword());
     }
 
     /**
      * 登出
      *
-     * @param request HttpServletRequest
      * @return Return
      */
     @ApiOperation(value = "logout", notes = "logout", httpMethod = "POST")
     @PostMapping("/logout")
-    public Return<?> logout(HttpServletRequest request) {
-        String token = request.getHeader(SecurityConstants.AUTHORIZATION_HEADER);
-        if (StrUtil.isNotBlank(token)) {
-            String userName = JwtUtils.getUserName(token);
-            authService.logout(userName);
+    public Return<?> logout() {
+        if (authService.logout()) {
+            return Return.succeed();
         }
-        return Return.succeed();
+        return Return.fail("登出失败");
     }
 
     /**
      * 刷新
      *
-     * @param request HttpServletRequest
      * @return Return
      */
     @ApiOperation(value = "refresh", notes = "refresh", httpMethod = "POST")
     @PostMapping("/refresh")
-    public Return<?> refresh(HttpServletRequest request) {
-        LoginUser loginUser = tokenUtils.getLoginUser(request);
-        if (ObjectUtil.isNotNull(loginUser)) {
-            tokenUtils.refreshToken(loginUser);
+    public Return<?> refresh() {
+        if (authService.refresh()) {
+            return Return.succeed();
         }
-        return Return.succeed();
+        return Return.fail("刷新失败");
     }
 }

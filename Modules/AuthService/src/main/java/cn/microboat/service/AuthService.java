@@ -1,8 +1,9 @@
 package cn.microboat.service;
 
 import cn.microboat.core.Return;
-import cn.microboat.core.pojo.dto.LoginUser;
 import cn.microboat.core.pojo.vo.UserVo;
+
+import java.util.Map;
 
 /**
  * 权限认证服务接口
@@ -27,12 +28,19 @@ public interface AuthService {
      * @param password 密码
      * @return LoginUser
      */
-    LoginUser login(String username, String password);
+    Return<Map<String, Object>> login(String username, String password);
 
     /**
      * 登出
      *
-     * @param username 用户名
+     * @return 是否登出成功
      */
-    void logout(String username);
+    boolean logout();
+
+    /**
+     * 刷新
+     *
+     * @return 是否成功
+     */
+    boolean refresh();
 }

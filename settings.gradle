@@ -1,11 +1,29 @@
+// 根项目名称
 rootProject.name = 'Magician'
+
+// 公共包 Common
+// common-core 公共核心包
 include 'Common:CommonCore'
+// common-datasource 公共数据源包
 include 'Common:CommonDatasource'
+// common-redis 公共缓存包
 include 'Common:CommonRedis'
+// common-web 公共网络包
 include 'Common:CommonWeb'
+// common-security 公共安全包
 include 'Common:CommonSecurity'
+
+// 网关
 include 'Gateway'
-include 'Modules:SystemService'
-include 'Modules:TaskService'
+
+// 微服务模块
+// auth 权限认证微服务
 include 'Modules:AuthService'
+// system 系统微服务
+include 'Modules:SystemService'
+// task 任务微服务
+include 'Modules:TaskService'
+
+// 远程调用接口
+// system 系统微服务远程调用接口
 include 'Api:SystemApi'

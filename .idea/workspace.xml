@@ -4,47 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5dcf1126-4943-4e85-b8fe-a767ebcd3258" name="Changes" comment="fix：新建 common-redis 模块，封装redis操作；新增 auth 权限认证模块；引入 mybatis，完善 Task 微服务；新建 common-web 模块，封装 web 相关工具类">
-      <change afterPath="$PROJECT_DIR$/Common/CommonCore/src/main/java/cn/microboat/core/pojo/dto/LoginUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/CommonSecurity/src/main/java/cn/microboat/security/utils/TokenUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/dao/UserRepository.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="5dcf1126-4943-4e85-b8fe-a767ebcd3258" name="Changes" comment="fix：新建 common-security 模块，封装token 操作；将 System 模块使用 mybatis 重构，使得实体类能够封装在 common-core 模块，方便其他微服务进行调用；完成注册、登陆、登出、刷新的登陆鉴权相关逻辑">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/SystemApi/src/main/java/cn/microboat/factory/RemoteLoginFallbackFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api/SystemApi/src/main/java/cn/microboat/factory/RemoteLoginFallbackFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/SystemApi/src/main/java/cn/microboat/service/RemoteLoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api/SystemApi/src/main/java/cn/microboat/service/RemoteLoginService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/CommonCore/src/main/java/cn/microboat/core/utils/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/CommonCore/src/main/java/cn/microboat/core/utils/JwtUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/CommonDatasource/src/main/java/cn/microboat/entity/BasicEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/CommonDatasource/src/main/java/cn/microboat/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/CommonCore/src/main/java/cn/microboat/core/pojo/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/CommonDatasource/src/main/java/cn/microboat/handler/CommonMetaObjectHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/CommonRedis/src/main/java/cn/microboat/service/RedisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/CommonRedis/src/main/java/cn/microboat/utils/RedisUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/CommonSecurity/src/main/java/cn/microboat/security/utils/TokenUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/CommonSecurity/src/main/java/cn/microboat/security/utils/TokenUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gateway/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Gateway/src/main/resources/bootstrap.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/AuthService/src/main/java/cn/microboat/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/AuthService/src/main/java/cn/microboat/controller/AuthController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/AuthService/src/main/java/cn/microboat/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/AuthService/src/main/java/cn/microboat/service/AuthService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/AuthService/src/main/java/cn/microboat/service/impl/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/AuthService/src/main/java/cn/microboat/service/impl/AuthServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/AuthService/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/AuthService/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/SystemServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/SystemServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/dao/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/dao/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/mapper/User2DtoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/CommonCore/src/main/java/cn/microboat/core/mapper/User2DtoMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/mapper/User2VoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/CommonCore/src/main/java/cn/microboat/core/mapper/User2VoMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/mapper/converter/UserMapperConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/CommonCore/src/main/java/cn/microboat/core/mapper/converter/UserMapperConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/model/LoginUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/service/LoginService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/service/TokenService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/service/impl/LoginServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/service/impl/LoginServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/service/impl/TokenServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/SystemService/src/main/java/cn/microboat/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/TaskService/src/main/java/cn/microboat/TaskServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/TaskService/src/main/java/cn/microboat/TaskServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/TaskService/src/main/java/cn/microboat/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/TaskService/src/main/java/cn/microboat/controller/TaskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/TaskService/src/main/java/cn/microboat/domain/BasicEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/CommonCore/src/main/java/cn/microboat/core/pojo/entity/BasicEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/TaskService/src/main/java/cn/microboat/domain/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/CommonCore/src/main/java/cn/microboat/core/pojo/entity/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/TaskService/src/main/java/cn/microboat/mapper/TaskMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/TaskService/src/main/java/cn/microboat/dao/TaskRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/TaskService/src/main/java/cn/microboat/mapper/TaskMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/TaskService/src/main/java/cn/microboat/dao/TaskRepository.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/TaskService/src/main/java/cn/microboat/service/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/TaskService/src/main/java/cn/microboat/service/TaskService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/TaskService/src/main/java/cn/microboat/service/impl/TaskServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/TaskService/src/main/java/cn/microboat/service/impl/TaskServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/SystemService/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/SystemService/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/TaskService/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/TaskService/src/main/resources/bootstrap.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/config.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -105,64 +75,6 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="Magician" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Magician" type="f1a62948:ProjectNode" />
-                <item name="Common" type="2d1252cf:ModuleNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Magician" type="f1a62948:ProjectNode" />
-                <item name="Common" type="2d1252cf:ModuleNode" />
-                <item name="CommonCore" type="2d1252cf:ModuleNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Magician" type="f1a62948:ProjectNode" />
-                <item name="Common" type="2d1252cf:ModuleNode" />
-                <item name="CommonCore" type="2d1252cf:ModuleNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Magician" type="f1a62948:ProjectNode" />
-                <item name="Common" type="2d1252cf:ModuleNode" />
-                <item name="CommonCore" type="2d1252cf:ModuleNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Magician" type="f1a62948:ProjectNode" />
-                <item name="Common" type="2d1252cf:ModuleNode" />
-                <item name="CommonCore" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Magician" type="f1a62948:ProjectNode" />
-                <item name="Common" type="2d1252cf:ModuleNode" />
-                <item name="CommonCore" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Magician" type="f1a62948:ProjectNode" />
-                <item name="Common" type="2d1252cf:ModuleNode" />
-                <item name="CommonCore" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Magician" type="f1a62948:ProjectNode" />
-                <item name="Common" type="2d1252cf:ModuleNode" />
-                <item name="CommonCore" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-                <item name="io.jsonwebtoken:jjwt-impl:0.11.5" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
               </path>
             </expand>
             <select />
@@ -425,7 +337,7 @@
       <workItem from="1665911062296" duration="195000" />
       <workItem from="1665911390657" duration="112826000" />
       <workItem from="1666416591331" duration="66000" />
-      <workItem from="1666416681972" duration="20791000" />
+      <workItem from="1666416681972" duration="27532000" />
     </task>
     <task id="LOCAL-00001" summary="fix：更新 README.md 文件">
       <created>1665921837883</created>
@@ -511,7 +423,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666361598982</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fix：新建 common-security 模块，封装token 操作；将 System 模块使用 mybatis 重构，使得实体类能够封装在 common-core 模块，方便其他微服务进行调用；完成注册、登陆、登出、刷新的登陆鉴权相关逻辑">
+      <created>1666448725335</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1666448725335</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -541,6 +460,7 @@
     <MESSAGE value="fix：代码优化" />
     <MESSAGE value="fix：Api代码优化" />
     <MESSAGE value="fix：新建 common-redis 模块，封装redis操作；新增 auth 权限认证模块；引入 mybatis，完善 Task 微服务；新建 common-web 模块，封装 web 相关工具类" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix：新建 common-redis 模块，封装redis操作；新增 auth 权限认证模块；引入 mybatis，完善 Task 微服务；新建 common-web 模块，封装 web 相关工具类" />
+    <MESSAGE value="fix：新建 common-security 模块，封装token 操作；将 System 模块使用 mybatis 重构，使得实体类能够封装在 common-core 模块，方便其他微服务进行调用；完成注册、登陆、登出、刷新的登陆鉴权相关逻辑" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix：新建 common-security 模块，封装token 操作；将 System 模块使用 mybatis 重构，使得实体类能够封装在 common-core 模块，方便其他微服务进行调用；完成注册、登陆、登出、刷新的登陆鉴权相关逻辑" />
   </component>
 </project>
