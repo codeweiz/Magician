@@ -2,25 +2,61 @@
 
 ### 模块说明
 
+Api模块：存放微服务的远程调用接口
+
 Common模块：存放公共使用的类
+
+CommonCore模块：公共模块的核心模块
+
+CommonDatasource模块：公共模块的数据源模块
+
+CommonRedis模块：公共模块的缓存模块
+
+CommonSecurity模块：公共模块的安全模块
+
+CommonWeb模块：公共模块的网络传输模块
 
 Gateway模块：网关
 
 Modules模块：存放微服务
 
-System模块：Modules模块的子模块
+AuthService模块：Modules模块的子模块
+
+SystemService模块：Modules模块的子模块
 
 TaskService模块：Modules模块的子模块
 
-
 ### .gradle 文件说明
+
 build.gradle：控制各个模块的依赖
 
 config.gradle：用来控制依赖的版本信息
 
 settings.gradle：项目的模块结构
 
-
 ### 技术栈
-- spring cloud
-- spring boot
+
+微服务框架：
+
+- Spring Cloud
+- Spring Boot
+
+数据库访问：
+
+- Mybatis
+
+缓存：
+
+- Redis
+
+网关：
+
+- spring-cloud-gateway
+
+服务远程调用：
+
+- spring-cloud-open-feign
+
+服务注册与发现：
+
+- spring-cloud-alibaba-nacos

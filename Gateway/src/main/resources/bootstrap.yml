@@ -4,6 +4,9 @@ server:
 spring:
   application:
     name: Gateway
+  redis:
+    host: localhost
+    port: 6379
   cloud:
     nacos:
       config:

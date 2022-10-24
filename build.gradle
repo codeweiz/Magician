@@ -160,12 +160,17 @@ project(':Gateway') {
     dependencies {
         // 引入公共模块 CommonCore
         implementation project(':Common:CommonCore')
+        // 引入公共模块 CommonRedis，需要在配置文件中配置 redis 的配置
+        implementation project(':Common:CommonRedis')
         annotationProcessor 'org.projectlombok:lombok'
         implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
         implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
         implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
         implementation 'org.springframework.cloud:spring-cloud-starter-gateway'
         implementation 'org.springframework.cloud:spring-cloud-starter-loadbalancer'
+
+        // 验证码
+        implementation 'com.github.penggle:kaptcha'
     }
 }
 

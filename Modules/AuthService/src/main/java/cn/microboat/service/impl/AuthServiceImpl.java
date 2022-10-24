@@ -59,12 +59,15 @@ public class AuthServiceImpl implements AuthService {
      */
     @Override
     public Return<Map<String, Object>> login(String username, String password) {
-        Return<LoginUser> login = remoteLoginService.login(user2DtoMapper.entityToModel(new User(username, password)));
-        LoginUser loginUser = login.getData();
-        if (ObjectUtil.isEmpty(loginUser)) {
-            return Return.fail("loginUser is null");
+        Return<LoginUser> loginUserReturn = remoteLoginService.login(user2DtoMapper.entityToModel(new User(username, password)));
+
+        // 返回失败
+        if (!loginUserReturn.getSuccess()) {
+            return Return.fail(loginUserReturn.getError());
         }
-        return Return.succeed(tokenUtils.createToken(loginUser));
+
+        // 返回成功
+        return Return.succeed(tokenUtils.createToken(loginUserReturn.getData()));
     }
 
     /**
