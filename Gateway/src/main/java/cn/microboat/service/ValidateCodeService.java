@@ -19,9 +19,8 @@ public interface ValidateCodeService {
     /**
      * 校验验证码
      *
-     * @param key   键
-     * @param value 值
-     * @return 是否校验通过
+     * @param code 键
+     * @param uuid 值
      */
-    boolean checkCaptcha(String key, String value);
+    void checkCaptcha(String code, String uuid);
 }

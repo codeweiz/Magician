@@ -64,6 +64,8 @@ project(':Common:CommonCore') {
         api 'org.springframework:spring-context-support'
         // spring cloud netflix hystrix
         api 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix'
+        // configuration-processor
+        api 'org.springframework.boot:spring-boot-configuration-processor'
         // hutool 工具类
         api 'cn.hutool:hutool-all'
         // guava 工具类
@@ -193,6 +195,34 @@ project(':Modules') {
     }
 }
 
+// 给子模块 Modules 的子模块 AuthService 配置依赖
+project(':Modules:AuthService') {
+    dependencies {
+        // 引入公共模块 CommonSecurity，要在 yml 中添加 redis 的配置
+        implementation project(':Common:CommonSecurity')
+        // 引入公共模块 CommonWeb
+        implementation project(':Common:CommonWeb')
+    }
+}
+
+// 给子模块 Modules 的子模块 JobService 配置依赖
+project(':Modules:JobService') {
+    dependencies {
+        // 引入公共模块 CommonCore
+        implementation project(':Common:CommonCore')
+    }
+}
+
+// 给子模块 Modules 的子模块 MessageService 配置依赖
+project(':Modules:MessageService') {
+    dependencies {
+        // 引入公共模块 CommonCore
+        implementation project(':Common:CommonCore')
+        implementation 'org.springframework.kafka:spring-kafka'
+        implementation 'org.apache.kafka:kafka-streams'
+    }
+}
+
 // 给子模块 Modules 的子模块 SystemService 配置依赖
 project(':Modules:SystemService') {
     // 解决 mapper 的 xml 文件无法打包的问题
@@ -217,12 +247,13 @@ project(':Modules:TaskService') {
     }
 }
 
-// 给子模块 Modules 的子模块 AuthService 配置依赖
-project(':Modules:AuthService') {
+// 给子模块 Modules 的子模块 WebSocketService 配置依赖
+project(':Modules:WebSocketService') {
     dependencies {
-        // 引入公共模块 CommonSecurity，要在 yml 中添加 redis 的配置
-        implementation project(':Common:CommonSecurity')
-        // 引入公共模块 CommonWeb
-        implementation project(':Common:CommonWeb')
+        // 引入公共模块 CommonCore
+        implementation project(':Common:CommonCore')
+        annotationProcessor 'org.projectlombok:lombok'
+        // websocket starter
+        implementation 'org.springframework.boot:spring-boot-starter-websocket'
     }
 }

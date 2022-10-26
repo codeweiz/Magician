@@ -1,6 +1,6 @@
 server:
   port: 9000
-  address: 192.168.0.67
+  address: 192.168.0.37
 spring:
   application:
     name: Gateway
@@ -16,17 +16,29 @@ spring:
         server-addr: 47.100.131.2:8848
         group: magician-dev
     gateway:
+      discovery:
+        locator:
+          enabled: false
       routes:
         - id: auth
           uri: lb://auth
           predicates:
             - Path=/api/auth/**
           filters:
+            # 验证码处理
+            - CacheRequestFilter
+            - ValidateCodeFilter
             - StripPrefix=2
-        - id: task
-          uri: lb://task
+        - id: job
+          uri: lb://job
           predicates:
-            - Path=/api/task/**
+            - Path=/api/job/**
+          filters:
+            - StripPrefix=2
+        - id: message
+          uri: lb://message
+          predicates:
+            - Path=/api/message/**
           filters:
             - StripPrefix=2
         - id: system
@@ -35,3 +47,22 @@ spring:
             - Path=/api/system/**
           filters:
             - StripPrefix=2
+        - id: task
+          uri: lb://task
+          predicates:
+            - Path=/api/task/**
+          filters:
+            - StripPrefix=2
+        - id: websocket
+          uri: lb:ws://websocket
+          predicates:
+            - Path=/api/websocket/**
+          filters:
+            - StripPrefix=2
+
+# 安全配置
+security:
+  # 验证码
+  captcha:
+    enabled: true
+    type: math

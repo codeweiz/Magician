@@ -1,6 +1,6 @@
 server:
   port: 9092
-  address: 192.168.0.67
+  address: 192.168.0.37
 spring:
   application:
     name: task
