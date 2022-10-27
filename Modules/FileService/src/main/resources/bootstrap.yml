@@ -1,0 +1,20 @@
+server:
+  port: 9400
+  address: 192.168.0.37
+spring:
+  application:
+    name: file
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  cloud:
+    nacos:
+      config:
+        server-addr: 47.100.131.2:8848
+        group: magician-dev
+      discovery:
+        server-addr: 47.100.131.2:8848
+        group: magician-dev
+feign:
+  circuitbreaker:
+    enabled: true

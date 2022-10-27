@@ -4,6 +4,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.microboat.core.Return;
 import cn.microboat.core.constant.SecurityConstants;
 import cn.microboat.core.mapper.User2DtoMapper;
+import cn.microboat.core.mapper.User2VoMapper;
 import cn.microboat.core.pojo.dto.LoginUser;
 import cn.microboat.core.pojo.entity.User;
 import cn.microboat.core.pojo.vo.UserVo;
@@ -28,12 +29,14 @@ public class AuthServiceImpl implements AuthService {
     private final TokenUtils tokenUtils;
     private final RemoteLoginService remoteLoginService;
     private final User2DtoMapper user2DtoMapper;
+    private final User2VoMapper user2VoMapper;
 
     @Autowired
-    AuthServiceImpl(TokenUtils tokenUtils, RemoteLoginService remoteLoginService, User2DtoMapper user2DtoMapper) {
+    AuthServiceImpl(TokenUtils tokenUtils, RemoteLoginService remoteLoginService, User2DtoMapper user2DtoMapper, User2VoMapper user2VoMapper) {
         this.tokenUtils = tokenUtils;
         this.remoteLoginService = remoteLoginService;
         this.user2DtoMapper = user2DtoMapper;
+        this.user2VoMapper = user2VoMapper;
     }
 
 
@@ -67,7 +70,9 @@ public class AuthServiceImpl implements AuthService {
         }
 
         // 返回成功
-        return Return.succeed(tokenUtils.createToken(loginUserReturn.getData()));
+        Map<String, Object> map = tokenUtils.createToken(loginUserReturn.getData());
+        map.put("userInfo", user2VoMapper.entityToModel(loginUserReturn.getData().getUser()));
+        return Return.succeed(map);
     }
 
     /**

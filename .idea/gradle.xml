@@ -23,6 +23,7 @@
             <option value="$PROJECT_DIR$/Gateway" />
             <option value="$PROJECT_DIR$/Modules" />
             <option value="$PROJECT_DIR$/Modules/AuthService" />
+            <option value="$PROJECT_DIR$/Modules/FileService" />
             <option value="$PROJECT_DIR$/Modules/JobService" />
             <option value="$PROJECT_DIR$/Modules/MessageService" />
             <option value="$PROJECT_DIR$/Modules/SystemService" />

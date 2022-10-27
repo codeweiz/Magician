@@ -19,18 +19,19 @@ include 'Gateway'
 // 微服务模块
 // auth 权限认证微服务
 include 'Modules:AuthService'
+// file 文件存储微服务
+include 'Modules:FileService'
+// Job 定时任务微服务
+include 'Modules:JobService'
+// message 消息队列微服务
+include 'Modules:MessageService'
 // system 系统微服务
 include 'Modules:SystemService'
 // task 任务微服务
 include 'Modules:TaskService'
-// message 消息队列微服务
-include 'Modules:MessageService'
 // websocket 轻量级消息微服务
 include 'Modules:WebSocketService'
-// Job 定时任务微服务
-include 'Modules:JobService'
 
 // 远程调用接口
 // system 系统微服务远程调用接口
 include 'Api:SystemApi'
-

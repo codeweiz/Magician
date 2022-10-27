@@ -1,11 +1,15 @@
 package cn.microboat.server;
 
+import cn.microboat.utils.WebSocketUtils;
+import com.alibaba.fastjson2.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -41,11 +45,12 @@ public class WebSocketServer {
     /**
      * 生成 map 的 key
      *
-     * @param str session_id
+     * @param session 根据 session 生成 MAP 中的键
      * @return key
      */
-    private String getKey(String str) {
-        return CHANNEL + HASH_KEY + str;
+    private String getKey(Session session) {
+        String queryString = session.getQueryString();
+        return CHANNEL + HASH_KEY + queryString.substring(queryString.indexOf("=") + 1);
     }
 
     /**
@@ -55,8 +60,8 @@ public class WebSocketServer {
      */
     @OnOpen
     public void open(Session session) {
-        WEBSOCKET_MAP.put(getKey(session.getId()), session);
-        log.info("【websocket消息】 有新连接：{}，总数为：{}", session.getId(), WEBSOCKET_MAP.entrySet().size());
+        WEBSOCKET_MAP.put(getKey(session), session);
+        log.info("【websocket消息】有新连接：{}，总数为：{}", getKey(session), WEBSOCKET_MAP.entrySet().size());
     }
 
     /**
@@ -66,8 +71,8 @@ public class WebSocketServer {
      */
     @OnClose
     public void close(Session session) {
-        WEBSOCKET_MAP.remove(getKey(session.getId()));
-        log.info("【websocket消息】 有连接断开：{}，总数为：{}", session.getId(), WEBSOCKET_MAP.entrySet().size());
+        WEBSOCKET_MAP.remove(getKey(session));
+        log.info("【websocket消息】有连接断开：{}，总数为：{}", getKey(session), WEBSOCKET_MAP.entrySet().size());
     }
 
     /**
@@ -78,7 +83,10 @@ public class WebSocketServer {
      */
     @OnMessage
     public void message(Session session, String msg) {
-        log.info("【websocket消息】从客户端：{}，收到消息：{}", session.getId(), msg);
+        log.info("【websocket消息】从客户端：{}，收到消息：{}", getKey(session), msg);
+        Map<String, Object> map = new HashMap<>();
+        map.put("messageCount", 3);
+        WebSocketUtils.sendToOneMessage(getKey(session), JSON.toJSONString(map));
     }
 
     /**
@@ -89,7 +97,7 @@ public class WebSocketServer {
      */
     @OnError
     public void error(Session session, Throwable throwable) {
-        log.error("【websocket消息】客户端：{}，发生异常：{}", session.getId(), throwable.getMessage());
+        log.error("【websocket消息】客户端：{}，发生异常：{}", getKey(session), throwable.getMessage());
     }
 
 }

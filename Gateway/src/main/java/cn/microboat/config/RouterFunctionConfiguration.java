@@ -28,7 +28,7 @@ public class RouterFunctionConfiguration {
     public RouterFunction routerFunction() {
         return RouterFunctions.route(
                 RequestPredicates
-                        .GET("/code")
+                        .GET("/api/code")
                         .and(RequestPredicates.accept(MediaType.TEXT_PLAIN)),
                 validateCodeHandler);
     }

@@ -29,6 +29,12 @@ spring:
             - CacheRequestFilter
             - ValidateCodeFilter
             - StripPrefix=2
+        - id: file
+          uri: lb://file
+          predicates:
+            - Path=/api/file/**
+          filters:
+            - StripPrefix=2
         - id: job
           uri: lb://job
           predicates:

@@ -205,6 +205,15 @@ project(':Modules:AuthService') {
     }
 }
 
+// 给子模块 Modules 的子模块 FileService 配置依赖
+project(':Modules:FileService') {
+    dependencies {
+        // 引入公共模块 CommonCore
+        implementation project(':Common:CommonCore')
+        annotationProcessor 'org.projectlombok:lombok'
+    }
+}
+
 // 给子模块 Modules 的子模块 JobService 配置依赖
 project(':Modules:JobService') {
     dependencies {
