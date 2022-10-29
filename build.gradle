@@ -220,6 +220,8 @@ project(':Modules:JobService') {
     dependencies {
         // 引入公共模块 CommonCore
         implementation project(':Common:CommonCore')
+        annotationProcessor 'org.projectlombok:lombok'
+        implementation 'com.xuxueli:xxl-job-core'
     }
 }
 

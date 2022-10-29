@@ -20,11 +20,19 @@ Gateway模块：网关
 
 Modules模块：存放微服务
 
-AuthService模块：Modules模块的子模块
+AuthService模块：Modules模块的子模块，负责登陆权限校验
 
-SystemService模块：Modules模块的子模块
+FileService模块：Modules模块的子模块，负责文件上传与下载
 
-TaskService模块：Modules模块的子模块
+JobService模块：Modules模块的子模块，负责定时任务
+
+MessageService模块：Modules模块的子模块，负责消息队列
+
+SystemService模块：Modules模块的子模块，负责用户的管理
+
+TaskService模块：Modules模块的子模块，负责任务的管理
+
+WebSocketService模块：Modules模块的子模块，负责与前端进行消息传递
 
 ### .gradle 文件说明
 
@@ -60,3 +68,19 @@ settings.gradle：项目的模块结构
 服务注册与发现：
 
 - spring-cloud-alibaba-nacos
+
+消息队列：
+
+- Kafka
+
+文件存储：
+
+- Minio
+
+轻量级全双工消息通信：
+
+- WebSocket
+
+分布式任务调度：
+
+- Xxl-Job

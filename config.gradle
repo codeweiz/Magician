@@ -17,7 +17,8 @@ ext {
             "fastjsonVersion"      : "2.0.15",
             "kafkaSpringVersion"   : "2.9.2",
             "kafkaStreamVersion"   : "3.3.1",
-            "minioVersion"         : "8.4.5"
+            "minioVersion"         : "8.4.5",
+            "xxlJobVersion"        : "2.3.1"
     ]
 
     dependencies = [
@@ -43,6 +44,7 @@ ext {
             "fastJson"              : "com.alibaba.fastjson2:fastjson2:${version.fastjsonVersion}",
             "kafka-sprinig"         : "org.springframework.kafka:spring-kafka:${version.kafkaSpringVersion}",
             "kafka-stream"          : "org.apache.kafka:kafka-streams:${version.kafkaStreamVersion}",
-            "minio"                 : "io.minio:minio:${version.minioVersion}"
+            "minio"                 : "io.minio:minio:${version.minioVersion}",
+            "xxl-job"               : "com.xuxueli:xxl-job-core:${version.xxlJobVersion}"
     ]
 }
