@@ -4,14 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5dcf1126-4943-4e85-b8fe-a767ebcd3258" name="Changes" comment="fix：完善 Job 定时任务微服务模块；完善 kafka 消息队列微服务模块；">
-      <change afterPath="$PROJECT_DIR$/Modules/MessageService/src/main/java/cn/microboat/consumer/KafkaConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/MessageService/src/main/java/cn/microboat/controller/KafkaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/MessageService/src/main/java/cn/microboat/pojo/Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/MessageService/src/main/java/cn/microboat/producer/KafkaProducer.java" afterDir="false" />
+    <list default="true" id="5dcf1126-4943-4e85-b8fe-a767ebcd3258" name="Changes" comment="fix：完善 Job 定时任务微服务模块；完善 file 文件存储微服务模块；">
+      <change afterPath="$PROJECT_DIR$/Modules/FileService/src/main/java/cn/microboat/config/MinioConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/FileService/src/main/java/cn/microboat/config/MultiConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/FileService/src/main/java/cn/microboat/controller/FileController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/FileService/src/main/java/cn/microboat/service/FileService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/FileService/src/main/java/cn/microboat/service/impl/MinioFileServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/FileService/src/main/java/cn/microboat/utils/FileUploadUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/MessageService/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/MessageService/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gateway/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Gateway/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/FileService/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/FileService/src/main/resources/bootstrap.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/config.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,22 +91,41 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="Magician" type="f1a62948:ProjectNode" />
                 <item name="Modules" type="2d1252cf:ModuleNode" />
-                <item name="SystemService" type="2d1252cf:ModuleNode" />
+                <item name="FileService" type="2d1252cf:ModuleNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="Magician" type="f1a62948:ProjectNode" />
                 <item name="Modules" type="2d1252cf:ModuleNode" />
-                <item name="SystemService" type="2d1252cf:ModuleNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="FileService" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="Magician" type="f1a62948:ProjectNode" />
                 <item name="Modules" type="2d1252cf:ModuleNode" />
-                <item name="SystemService" type="2d1252cf:ModuleNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
+                <item name="FileService" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Magician" type="f1a62948:ProjectNode" />
+                <item name="Modules" type="2d1252cf:ModuleNode" />
+                <item name="FileService" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="io.minio:minio:8.4.5" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Magician" type="f1a62948:ProjectNode" />
+                <item name="Modules" type="2d1252cf:ModuleNode" />
+                <item name="FileService" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="io.minio:minio:8.4.5" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="com.squareup.okhttp3:okhttp:4.9.3" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
               </path>
             </expand>
             <select />
@@ -196,7 +219,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.MessageApplication">
+  <component name="RunManager" selected="Spring Boot.FileApplication">
     <configuration name="Magician:Modules:SystemService [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -404,7 +427,8 @@
       <workItem from="1666416591331" duration="66000" />
       <workItem from="1666416681972" duration="36513000" />
       <workItem from="1666678762483" duration="47928000" />
-      <workItem from="1666953573501" duration="5654000" />
+      <workItem from="1666953573501" duration="7925000" />
+      <workItem from="1667009805291" duration="8878000" />
     </task>
     <task id="LOCAL-00001" summary="fix：更新 README.md 文件">
       <created>1665921837883</created>
@@ -525,7 +549,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666881844841</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="fix：完善 kafka 消息队列微服务模块；">
+      <created>1666967141454</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1666967141454</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -560,7 +591,8 @@
     <MESSAGE value="fix：完善登陆鉴权相关逻辑；补充 README.md 文件说明；在 CommonSecurity 模块添加全局异常处理；在 gateway 网关层添加验证码相关配置类" />
     <MESSAGE value="feat：新增 kafka 消息队列微服务模块；新增 websocket 微服务模块；新增 Job 定时任务微服务模块；完成验证码相关逻辑；解决 gateway 过滤器不能重复获取 request 中的 body 的问题" />
     <MESSAGE value="fix：完善 websocket 微服务模块；新增 FileService 文件存储模块" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix：完善 websocket 微服务模块；新增 FileService 文件存储模块" />
+    <MESSAGE value="fix：完善 kafka 消息队列微服务模块；" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix：完善 kafka 消息队列微服务模块；" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

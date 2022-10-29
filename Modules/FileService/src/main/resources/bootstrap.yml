@@ -4,6 +4,11 @@ server:
 spring:
   application:
     name: file
+  http:
+    multipart:
+      enabled: true
+      max-file-size: 30
+      max-request-size: 30
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
@@ -18,3 +23,10 @@ spring:
 feign:
   circuitbreaker:
     enabled: true
+
+# Minio配置
+minio:
+  endpoint: http://47.100.131.2:9001
+  accessKey: L3HTG80Z6298VPT35PRY
+  secretKey: HYOP9bD8ZPpR8neYk3pgwGQ+77qD6nbylAaQ1j8R
+  bucketName: test
