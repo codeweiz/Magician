@@ -10,10 +10,10 @@ spring:
   cloud:
     nacos:
       config:
-        server-addr: 47.100.131.2:8080
+        server-addr: 47.100.131.2:8848
         group: magician-dev
       discovery:
-        server-addr: 47.100.131.2:8080
+        server-addr: 47.100.131.2:8848
         group: magician-dev
     gateway:
       discovery:

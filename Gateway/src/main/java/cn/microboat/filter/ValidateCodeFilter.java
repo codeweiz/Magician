@@ -34,7 +34,7 @@ public class ValidateCodeFilter extends AbstractGatewayFilterFactory<Object> {
     /**
      * 需要验证的路径
      */
-    private final static String[] VALIDATE_URL = new String[]{"/api/auth/auth/login", "/api/auth/auth/register"};
+    private final static String[] VALIDATE_URL = new String[]{"/api/auth/auth/login"};
 
     private final ValidateCodeService validateCodeService;
 
